@@ -1,18 +1,15 @@
 import { Box } from '@mui/material';
 import Navbar from '../../components/Navbar/Navbar';
 import HeaderSection from '../../features/HeaderSection/HeaderSection';
+import WebsiteList from '../../features/WebsiteList/WebsiteList';
 import Footer from '../../components/Footer/Footer';
-import ToolsList from '../../features/ToolsList/ToolList';
 
-export default function Tools() {
+export default function Websites() {
   return (
     <Box sx={{ marginX: '24px', marginTop: '24px' }}>
       <Navbar />
-      <HeaderSection
-        title="Discover Powerful Tools"
-        subtitle="Explore a curated collection of tools designed to simplify coding, enhance productivity, and unlock your creative potential."
-      />
-      <ToolsList />
+      <HeaderSection title="Websites" subtitle="Nice to Know Websites" />
+      <WebsiteList />
       <Footer />
     </Box>
   );

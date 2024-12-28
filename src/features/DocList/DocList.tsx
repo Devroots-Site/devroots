@@ -1,23 +1,23 @@
-import { useEffect, useState } from 'react';
 import {
   Box,
   Container,
   TextField,
   MenuItem,
-  List,
-  ListItem,
-  ListItemText,
+  Grid,
+  Card,
+  CardContent,
+  CardActions,
   Typography,
   Chip,
   Avatar,
-  IconButton,
+  Button,
   CircularProgress,
   Alert,
 } from '@mui/material';
 import TextSnippetIcon from '@mui/icons-material/TextSnippet';
+import { useEffect, useState } from 'react';
 
 const keywordColors = [
-  'default',
   'primary',
   'secondary',
   'success',
@@ -27,57 +27,17 @@ const keywordColors = [
 ];
 
 export default function DocsList() {
-  const [docs, setDocs] = useState<
-    {
-      id: string;
-      name: string;
-      description?: string;
-      keywords: string[];
-      picturepath?: string;
-      version: string;
-      creator: string;
-      updated_at: string;
-      filepath: string;
-    }[]
-  >([]);
-  const [filteredDocs, setFilteredDocs] = useState<
-    {
-      id: string;
-      name: string;
-      description?: string;
-      keywords: string[];
-      picturepath?: string;
-      version: string;
-      creator: string;
-      updated_at: string;
-      filepath: string;
-    }[]
-  >([]);
+  const [docs, setDocs] = useState([]);
+  const [filteredDocs, setFilteredDocs] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const keywordColorMap: {
-    [key: string]:
-      | 'default'
-      | 'primary'
-      | 'secondary'
-      | 'success'
-      | 'error'
-      | 'warning'
-      | 'info';
-  } = {};
+  const keywordColorMap = {};
   categories.forEach((keyword, index) => {
-    keywordColorMap[keyword] = keywordColors[index % keywordColors.length] as
-      | 'default'
-      | 'primary'
-      | 'secondary'
-      | 'success'
-      | 'error'
-      | 'warning'
-      | 'info';
+    keywordColorMap[keyword] = keywordColors[index % keywordColors.length];
   });
 
   useEffect(() => {
@@ -99,11 +59,7 @@ export default function DocsList() {
         setFilteredDocs(docsData);
         setCategories(categoriesData.keywords || []);
       } catch (err) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError('An unknown error occurred');
-        }
+        setError(err.message || 'An unknown error occurred');
       } finally {
         setLoading(false);
       }
@@ -113,7 +69,7 @@ export default function DocsList() {
   }, []);
 
   useEffect(() => {
-    let filtered = docs;
+    let filtered = [...docs];
 
     if (searchTerm) {
       filtered = filtered.filter(
@@ -126,7 +82,7 @@ export default function DocsList() {
 
     if (selectedCategory) {
       filtered = filtered.filter((doc) =>
-        doc.keywords.includes(selectedCategory)
+        doc.keywords?.includes(selectedCategory)
       );
     }
 
@@ -155,15 +111,22 @@ export default function DocsList() {
           <Alert severity="error">An error occurred: {error}</Alert>
         </Box>
       )}
-      <Container maxWidth="md" sx={{ paddingY: { xs: 2, md: 4 } }}>
-        <Box sx={{ marginBottom: 4 }}>
+      <Container maxWidth="lg" sx={{ paddingY: { xs: 2, md: 4 } }}>
+        <Box
+          sx={{
+            marginBottom: 4,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 2,
+          }}
+        >
+          {/* Search and Category Filters */}
           <TextField
             fullWidth
             label="Search"
             variant="outlined"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            sx={{ marginBottom: 2 }}
           />
           <TextField
             select
@@ -185,71 +148,102 @@ export default function DocsList() {
         </Box>
 
         {filteredDocs.length > 0 ? (
-          <List>
+          <Grid container spacing={3}>
             {filteredDocs.map((doc) => (
-              <ListItem
-                key={doc.id}
-                alignItems="flex-start"
-                sx={{ borderBottom: '1px solid #ddd', paddingY: 2 }}
-              >
-                {doc.picturepath && (
-                  <Avatar
-                    variant="rounded"
-                    src={`/docs/${doc.picturepath}logo.png`}
-                    alt={doc.name}
-                    sx={{ width: 80, height: 80, marginRight: 2 }}
-                  />
-                )}
-                <ListItemText
-                  primary={
-                    <Typography variant="h6" component="div">
+              <Grid item xs={12} sm={6} md={4} key={doc.id}>
+                <Card
+                  sx={{
+                    boxShadow: 3,
+                    borderRadius: '12px',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                  }}
+                >
+                  {/* Image */}
+                  <Box
+                    sx={{
+                      height: 300,
+                      backgroundColor: '#f4f4f4',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <Avatar
+                      variant="square"
+                      src={`/docs/${doc.picturepath}logo.png`}
+                      alt={doc.name}
+                      sx={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'contain',
+                      }}
+                    />
+                  </Box>
+
+                  {/* Card Content */}
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <Typography
+                      variant="h6"
+                      sx={{ fontWeight: 'bold', marginBottom: 1 }}
+                    >
                       {doc.name}
                     </Typography>
-                  }
-                  secondary={
-                    <>
-                      <Typography variant="body2" color="textPrimary">
-                        {doc.description}
-                      </Typography>
-                      <Box mt={1}>
-                        {Array.isArray(doc.keywords) ? (
-                          doc.keywords.map((keyword, idx) => (
-                            <Chip
-                              key={idx}
-                              label={keyword}
-                              size="small"
-                              color={keywordColorMap[keyword]}
-                              sx={{ marginRight: '5px', marginBottom: '5px' }}
-                            />
-                          ))
-                        ) : (
-                          <Typography variant="body2" color="textSecondary">
-                            No Keywords Available
-                          </Typography>
-                        )}
-                      </Box>
-                      <Typography variant="body2" color="textSecondary">
-                        <strong>Version:</strong> {doc.version} |{' '}
-                        <strong>Author:</strong> {doc.creator} |{' '}
-                        <strong>Updated:</strong>{' '}
-                        {new Date(doc.updated_at).toLocaleDateString()}
-                      </Typography>
-                    </>
-                  }
-                />
-                <IconButton
-                  href={`/docs/${doc.filepath}`}
-                  target="_blank"
-                  color="primary"
-                  rel="noopener noreferrer"
-                >
-                  <TextSnippetIcon />
-                </IconButton>
-              </ListItem>
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      sx={{ marginBottom: 2 }}
+                    >
+                      {doc.description}
+                    </Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                      {Array.isArray(doc.keywords) &&
+                        doc.keywords.map((keyword, idx) => (
+                          <Chip
+                            key={idx}
+                            label={keyword}
+                            color={keywordColorMap[keyword]}
+                            size="small"
+                          />
+                        ))}
+                    </Box>
+                  </CardContent>
+
+                  {/* Card Actions */}
+                  <CardActions
+                    sx={{
+                      padding: 2,
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Typography variant="caption">
+                      <strong>Version:</strong> {doc.version}
+                      <br />
+                      <strong>Author:</strong> {doc.creator}
+                    </Typography>
+                    <Button
+                      size="small"
+                      href={`/docs/${doc.filepath}`}
+                      target="_blank"
+                      variant="contained"
+                      color="primary"
+                      startIcon={<TextSnippetIcon />}
+                    >
+                      Open
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
             ))}
-          </List>
+          </Grid>
         ) : (
-          <Typography variant="h6">No documents found.</Typography>
+          <Typography variant="h6" textAlign="center">
+            No documents found.
+          </Typography>
         )}
       </Container>
     </Box>

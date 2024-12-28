@@ -1,8 +1,17 @@
-import { Box, Typography, Button } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Typography, Button, IconButton, Drawer } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import logo from '../../assets/logo.png';
 import { Link } from 'react-router';
 
 export default function Navbar() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+
   return (
     <Box
       sx={{
@@ -23,15 +32,18 @@ export default function Navbar() {
       >
         <img src={logo} width={50} alt="Logo" />
         <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-          <Link to="/">Devroots</Link>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+            Devroots
+          </Link>
         </Typography>
       </Box>
 
-      {/* Navigation Links */}
+      {/* Desktop Navigation Links */}
       <Box
         sx={{
-          display: 'flex',
+          display: { xs: 'none', md: 'flex' }, // Hidden on small screens
           gap: '20px',
+          alignItems: 'center',
         }}
       >
         <Typography variant="body1" sx={{ cursor: 'pointer' }}>
@@ -40,27 +52,115 @@ export default function Navbar() {
           </Link>
         </Typography>
         <Typography variant="body1" sx={{ cursor: 'pointer' }}>
-          <Link to="/tools">Tools</Link>
+          <Link
+            to="/tools"
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            Tools
+          </Link>
         </Typography>
         <Typography variant="body1" sx={{ cursor: 'pointer' }}>
-          <Link to="/aboutme">About me</Link>
+          <Link
+            to="/aboutme"
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            About me
+          </Link>
         </Typography>
         <Typography variant="body1" sx={{ cursor: 'pointer' }}>
-          <Link to="/ressources">Resources</Link>
+          <Link
+            to="/websites"
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            Websites
+          </Link>
         </Typography>
+        <Button
+          variant="outlined"
+          sx={{
+            borderRadius: '20px',
+            textTransform: 'none',
+            padding: '5px 15px',
+          }}
+        >
+          Contact Now
+        </Button>
       </Box>
 
-      {/* Contact Button */}
-      <Button
-        variant="outlined"
+      {/* Mobile Hamburger Menu */}
+      <IconButton
         sx={{
-          borderRadius: '20px',
-          textTransform: 'none',
-          padding: '5px 15px',
+          display: { xs: 'block', md: 'none' }, // Shown on small screens
         }}
+        onClick={toggleDrawer}
       >
-        Contact Now
-      </Button>
+        <MenuIcon sx={{ fontSize: '30px', color: '#0078ff' }} />
+      </IconButton>
+
+      {/* Drawer for Mobile Navigation */}
+      <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
+        <Box
+          sx={{
+            width: '250px',
+            height: '100%',
+            backgroundColor: '#f9f9f9',
+            padding: '20px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px',
+          }}
+        >
+          {/* Close Button */}
+          <IconButton onClick={toggleDrawer} sx={{ alignSelf: 'flex-end' }}>
+            <CloseIcon sx={{ fontSize: '30px', color: '#0078ff' }} />
+          </IconButton>
+
+          {/* Mobile Navigation Links */}
+          <Typography variant="body1" sx={{ cursor: 'pointer' }}>
+            <Link
+              to="/docs"
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
+              Docs
+            </Link>
+          </Typography>
+          <Typography variant="body1" sx={{ cursor: 'pointer' }}>
+            <Link
+              to="/tools"
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
+              Tools
+            </Link>
+          </Typography>
+          <Typography variant="body1" sx={{ cursor: 'pointer' }}>
+            <Link
+              to="/aboutme"
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
+              About me
+            </Link>
+          </Typography>
+          <Typography variant="body1" sx={{ cursor: 'pointer' }}>
+            <Link
+              to="/websites"
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
+              Websites
+            </Link>
+          </Typography>
+          <Button
+            variant="outlined"
+            sx={{
+              borderRadius: '20px',
+              textTransform: 'none',
+              padding: '5px 15px',
+              alignSelf: 'flex-start',
+            }}
+          >
+            Contact Now
+          </Button>
+        </Box>
+      </Drawer>
     </Box>
   );
 }

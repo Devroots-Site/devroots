@@ -10,7 +10,7 @@ export default function Docs() {
       <Navbar />
       <HeaderSection
         title="Documentation"
-        subtitle="Explore tools, guides, and resources designed to make coding simpler and more productive for every developer"
+        subtitle="Explore tools, guides, and resources designed to make coding simpler and more productive for every developer (for the time being in german)."
       />
       <DocsList />
       <Footer />
