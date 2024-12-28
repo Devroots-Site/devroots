@@ -9,7 +9,7 @@ export default function Footer() {
       sx={{
         backgroundColor: '#1C5D99',
         color: '#fff',
-        padding: { xs: '40px 20px', sm: '60px 40px' }, // Responsive padding
+        padding: { xs: '40px 20px', sm: '60px 40px' },
         textAlign: 'center',
         borderTopLeftRadius: '16px',
         borderTopRightRadius: '16px',
@@ -24,20 +24,16 @@ export default function Footer() {
           justifyContent: 'center',
           marginBottom: '30px',
           gap: '15px',
-          flexDirection: { xs: 'column', md: 'row' }, // Stack on small screens
+          flexDirection: { xs: 'column', md: 'row' },
         }}
       >
-        <img
-          src={logo}
-          alt="Logo"
-          style={{ width: '80px', height: '80px' }} // Responsive logo size
-        />
+        <img src={logo} alt="Logo" style={{ width: '80px', height: '80px' }} />
         <Typography
           variant="h4"
           sx={{
             fontWeight: 'bold',
             textTransform: 'uppercase',
-            fontSize: { xs: '24px', sm: '28px', md: '32px' }, // Responsive font size
+            fontSize: { xs: '24px', sm: '28px', md: '32px' },
           }}
         >
           Devroots
@@ -48,21 +44,21 @@ export default function Footer() {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' }, // Stack on small screens
+          flexDirection: { xs: 'column', md: 'row' },
           justifyContent: 'space-between',
           alignItems: 'center',
           maxWidth: '1000px',
           margin: '0 auto',
-          flexWrap: 'wrap', // Wrap items for smaller screens
-          gap: '20px', // Adjust gap for responsiveness
+          flexWrap: 'wrap',
+          gap: '20px',
         }}
       >
         {/* Copyright */}
         <Typography
           variant="body1"
           sx={{
-            fontSize: { xs: '16px', sm: '18px' }, // Responsive font size
-            textAlign: { xs: 'center', md: 'left' }, // Center text on small screens
+            fontSize: { xs: '16px', sm: '18px' },
+            textAlign: { xs: 'center', md: 'left' },
           }}
         >
           © {new Date().getFullYear()} All rights reserved. Devroots
@@ -74,7 +70,7 @@ export default function Footer() {
             display: 'flex',
             alignItems: 'center',
             gap: '10px',
-            justifyContent: 'center', // Center icons on small screens
+            justifyContent: 'center',
           }}
         >
           <img
@@ -89,7 +85,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener"
             sx={{
-              fontSize: { xs: '16px', sm: '18px' }, // Responsive link text size
+              fontSize: { xs: '16px', sm: '18px' },
             }}
           >
             Instagram: EinfachBaste
@@ -102,7 +98,7 @@ export default function Footer() {
             display: 'flex',
             alignItems: 'center',
             gap: '10px',
-            justifyContent: 'center', // Center icons on small screens
+            justifyContent: 'center',
           }}
         >
           <img
@@ -117,7 +113,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener"
             sx={{
-              fontSize: { xs: '16px', sm: '18px' }, // Responsive link text size
+              fontSize: { xs: '16px', sm: '18px' },
             }}
           >
             LinkedIn: Bastian Bichler

@@ -2,11 +2,7 @@ import { Box, Typography } from '@mui/material';
 
 export default function Features() {
   return (
-    <Box
-      sx={{
-        padding: { xs: '20px', sm: '40px', md: '60px 80px' }, // Responsive padding
-      }}
-    >
+    <Box sx={{ marginX: '24px', marginTop: '24px' }}>
       {/* Section Header */}
       <Box
         sx={{
@@ -21,7 +17,7 @@ export default function Features() {
             marginBottom: '16px',
             color: '#333',
             marginTop: '40px',
-            fontSize: { xs: '24px', md: '32px' }, // Responsive font size
+            fontSize: { xs: '24px', md: '32px' },
           }}
         >
           Features
@@ -29,7 +25,7 @@ export default function Features() {
         <Typography
           variant="body1"
           sx={{
-            fontSize: { xs: '16px', md: '20px' }, // Responsive subtitle size
+            fontSize: { xs: '16px', md: '20px' },
             color: '#666',
           }}
         >
@@ -41,17 +37,17 @@ export default function Features() {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' }, // Stack vertically on small screens
-          gap: '40px', // Spacing between cards
-          justifyContent: 'center', // Center content on all screens
+          flexDirection: { xs: 'column', md: 'row' },
+          gap: '40px',
+          justifyContent: 'center',
         }}
       >
         {/* Card 1 */}
         <Box
           sx={{
             flex: 1,
-            maxWidth: { xs: '100%', md: '48%' }, // Full width on small screens, 48% on larger
-            padding: '30px', // Reduced padding for smaller screens
+            maxWidth: { xs: '100%', md: '48%' },
+            padding: '30px',
             borderRadius: '16px',
             background: 'linear-gradient(0deg, #1C5D99 0%, #46F0FC 130%)',
             color: '#fff',
@@ -75,7 +71,7 @@ export default function Features() {
             sx={{
               fontWeight: 'bold',
               marginBottom: '16px',
-              fontSize: { xs: '20px', md: '24px' }, // Responsive title size
+              fontSize: { xs: '20px', md: '24px' },
             }}
           >
             Tools that make your work Easier
@@ -83,7 +79,7 @@ export default function Features() {
           <Typography
             variant="body1"
             sx={{
-              fontSize: { xs: '14px', md: '16px' }, // Responsive text size
+              fontSize: { xs: '14px', md: '16px' },
               lineHeight: '1.6',
             }}
           >
@@ -96,8 +92,8 @@ export default function Features() {
         <Box
           sx={{
             flex: 1,
-            maxWidth: { xs: '100%', md: '48%' }, // Full width on small screens, 48% on larger
-            padding: '30px', // Reduced padding for smaller screens
+            maxWidth: { xs: '100%', md: '48%' },
+            padding: '30px',
             borderRadius: '16px',
             background: 'linear-gradient(0deg, #1C5D99 0%, #46F0FC 130%)',
             color: '#fff',
@@ -121,7 +117,7 @@ export default function Features() {
             sx={{
               fontWeight: 'bold',
               marginBottom: '16px',
-              fontSize: { xs: '20px', md: '24px' }, // Responsive title size
+              fontSize: { xs: '20px', md: '24px' },
             }}
           >
             Documentation to Guide You
@@ -129,7 +125,7 @@ export default function Features() {
           <Typography
             variant="body1"
             sx={{
-              fontSize: { xs: '14px', md: '16px' }, // Responsive text size
+              fontSize: { xs: '14px', md: '16px' },
               lineHeight: '1.6',
             }}
           >

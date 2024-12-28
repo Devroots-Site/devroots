@@ -1,12 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import headerSectionLogo from '../../assets/headerSectionLogo.png';
-
-type HeaderSectionProps = {
-  title: string;
-  subtitle: string;
-  srcPath?: string;
-  rounded?: boolean;
-};
+import { HeaderSectionProps } from './HeaderSection.type';
 
 export default function HeaderSection({
   title,
@@ -18,11 +12,11 @@ export default function HeaderSection({
     <Box
       sx={{
         display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' }, // Stack on small screens, row on larger
+        flexDirection: { xs: 'column', md: 'row' },
         alignItems: 'center',
         justifyContent: 'space-between',
         background: 'linear-gradient(to bottom, #66ccff, #0066cc)',
-        padding: { xs: '20px', md: '40px 60px' }, // Adjust padding for smaller screens
+        padding: { xs: '20px', md: '40px 60px' },
         color: '#fff',
         marginTop: '56px',
       }}
@@ -30,9 +24,9 @@ export default function HeaderSection({
       {/* Left Section: Text Content */}
       <Box
         sx={{
-          maxWidth: { xs: '100%', md: '50%' }, // Full width on small screens, half on larger
-          textAlign: { xs: 'center', md: 'left' }, // Center text on small screens
-          marginBottom: { xs: '20px', md: '0' }, // Add margin on small screens
+          maxWidth: { xs: '100%', md: '50%' },
+          textAlign: { xs: 'center', md: 'left' },
+          marginBottom: { xs: '20px', md: '0' },
         }}
       >
         <Typography
@@ -40,7 +34,7 @@ export default function HeaderSection({
           sx={{
             fontWeight: 'bold',
             marginBottom: '16px',
-            fontSize: { xs: '24px', md: '36px' }, // Smaller font size on small screens
+            fontSize: { xs: '24px', md: '36px' },
           }}
         >
           {title}
@@ -48,7 +42,7 @@ export default function HeaderSection({
         <Typography
           variant="body1"
           sx={{
-            fontSize: { xs: '16px', md: '18px' }, // Smaller font size on small screens
+            fontSize: { xs: '16px', md: '18px' },
             lineHeight: '1.6',
           }}
         >
@@ -59,9 +53,9 @@ export default function HeaderSection({
       {/* Right Section: Image */}
       <Box
         sx={{
-          maxWidth: { xs: '100%', md: '40%' }, // Full width on small screens, reduced width on larger
+          maxWidth: { xs: '100%', md: '40%' },
           display: 'flex',
-          justifyContent: 'center', // Center image on small screens
+          justifyContent: 'center',
         }}
       >
         <img
@@ -71,8 +65,8 @@ export default function HeaderSection({
             width: '100%',
             maxWidth: '400px',
             height: 'auto',
-            borderRadius: rounded ? '50%' : '0', // Makes the picture round if rounded is true
-            overflow: 'hidden', // Ensures proper clipping of the image if rounded is true
+            borderRadius: rounded ? '50%' : '0',
+            overflow: 'hidden',
           }}
         />
       </Box>

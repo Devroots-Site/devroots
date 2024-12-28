@@ -3,7 +3,7 @@ import {
   Container,
   TextField,
   MenuItem,
-  Grid,
+  Grid2,
   Card,
   CardContent,
   CardActions,
@@ -16,6 +16,7 @@ import {
 } from '@mui/material';
 import TextSnippetIcon from '@mui/icons-material/TextSnippet';
 import { useEffect, useState } from 'react';
+import { Doc } from './DocList.type';
 
 const keywordColors = [
   'primary',
@@ -27,17 +28,31 @@ const keywordColors = [
 ];
 
 export default function DocsList() {
-  const [docs, setDocs] = useState([]);
-  const [filteredDocs, setFilteredDocs] = useState([]);
+  const [docs, setDocs] = useState<Doc[]>([]);
+  const [filteredDocs, setFilteredDocs] = useState<Doc[]>([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const keywordColorMap = {};
+  const keywordColorMap: {
+    [key: string]:
+      | 'primary'
+      | 'secondary'
+      | 'success'
+      | 'error'
+      | 'warning'
+      | 'info';
+  } = {};
   categories.forEach((keyword, index) => {
-    keywordColorMap[keyword] = keywordColors[index % keywordColors.length];
+    keywordColorMap[keyword] = keywordColors[index % keywordColors.length] as
+      | 'primary'
+      | 'secondary'
+      | 'success'
+      | 'error'
+      | 'warning'
+      | 'info';
   });
 
   useEffect(() => {
@@ -55,11 +70,19 @@ export default function DocsList() {
         const docsData = await docsResponse.json();
         const categoriesData = await categoriesResponse.json();
 
-        setDocs(docsData.sort((a, b) => a.name.localeCompare(b.name)));
+        setDocs(
+          docsData.sort((a: { name: string }, b: { name: any }) =>
+            a.name.localeCompare(b.name)
+          )
+        );
         setFilteredDocs(docsData);
         setCategories(categoriesData.keywords || []);
       } catch (err) {
-        setError(err.message || 'An unknown error occurred');
+        if (err instanceof Error) {
+          setError(err.message || 'An unknown error occurred');
+        } else {
+          setError('An unknown error occurred');
+        }
       } finally {
         setLoading(false);
       }
@@ -148,9 +171,9 @@ export default function DocsList() {
         </Box>
 
         {filteredDocs.length > 0 ? (
-          <Grid container spacing={3}>
+          <Grid2 container spacing={3}>
             {filteredDocs.map((doc) => (
-              <Grid item xs={12} sm={6} md={4} key={doc.id}>
+              <Grid2 size={{ xs: 12, sm: 6, md: 4 }} key={doc.id}>
                 <Card
                   sx={{
                     boxShadow: 3,
@@ -237,9 +260,9 @@ export default function DocsList() {
                     </Button>
                   </CardActions>
                 </Card>
-              </Grid>
+              </Grid2>
             ))}
-          </Grid>
+          </Grid2>
         ) : (
           <Typography variant="h6" textAlign="center">
             No documents found.

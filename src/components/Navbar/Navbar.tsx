@@ -4,6 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import logo from '../../assets/logo.png';
 import { Link } from 'react-router';
+import CTAButton from '../CTAButton/CTAButton';
 
 export default function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -75,7 +76,7 @@ export default function Navbar() {
             Websites
           </Link>
         </Typography>
-        <Button
+        {/* <Button
           variant="outlined"
           sx={{
             borderRadius: '20px',
@@ -84,7 +85,8 @@ export default function Navbar() {
           }}
         >
           Contact Now
-        </Button>
+        </Button> */}
+        <CTAButton label="Contact now" />
       </Box>
 
       {/* Mobile Hamburger Menu */}

@@ -26,16 +26,54 @@ const keywordColors = [
 ];
 
 export default function ToolsList() {
-  const [tools, setTools] = useState([]);
-  const [filteredTools, setFilteredTools] = useState([]);
+  const [tools, setTools] = useState<
+    {
+      id: string;
+      name: string;
+      keywords: string[];
+      picturepath?: string;
+      language: string;
+      author: string;
+      updated_at: string;
+      link: string[];
+    }[]
+  >([]);
+  const [filteredTools, setFilteredTools] = useState<
+    {
+      id: string;
+      name: string;
+      keywords: string[];
+      picturepath?: string;
+      language: string;
+      author: string;
+      updated_at: string;
+      link: string[];
+    }[]
+  >([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const keywordColorMap = {};
+  const keywordColorMap: {
+    [key: string]:
+      | 'default'
+      | 'primary'
+      | 'secondary'
+      | 'success'
+      | 'error'
+      | 'warning'
+      | 'info';
+  } = {};
   const keywords = Array.from(new Set(tools.flatMap((tool) => tool.keywords)));
   keywords.forEach((keyword, index) => {
-    keywordColorMap[keyword] = keywordColors[index % keywordColors.length];
+    keywordColorMap[keyword] = keywordColors[index % keywordColors.length] as
+      | 'default'
+      | 'primary'
+      | 'secondary'
+      | 'success'
+      | 'error'
+      | 'warning'
+      | 'info';
   });
 
   useEffect(() => {
@@ -46,10 +84,18 @@ export default function ToolsList() {
           throw new Error('Failed to fetch tools');
         }
         const toolsData = await response.json();
-        setTools(toolsData.sort((a, b) => a.name.localeCompare(b.name)));
+        setTools(
+          toolsData.sort((a: { name: string }, b: { name: any }) =>
+            a.name.localeCompare(b.name)
+          )
+        );
         setFilteredTools(toolsData);
       } catch (err) {
-        setError(err.message);
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError('An unknown error occurred');
+        }
       } finally {
         setLoading(false);
       }

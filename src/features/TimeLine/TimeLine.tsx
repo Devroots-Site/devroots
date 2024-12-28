@@ -1,24 +1,12 @@
 import { Box, Typography } from '@mui/material';
 import TimelineIcon from '@mui/icons-material/Timeline';
-
-type TimelineItem = {
-  startDate: string;
-  endDate?: string; // Optional
-  title: string;
-  jobTitle: string;
-  description: string;
-  link: string;
-};
-
-type TimelineProps = {
-  items: TimelineItem[];
-};
+import { TimelineProps } from './TimeLine.type';
 
 export default function TimeLine({ items }: TimelineProps) {
   return (
     <Box
       sx={{
-        padding: { xs: '20px', md: '60px 80px' }, // Responsive padding
+        padding: { xs: '20px', md: '60px 80px' },
       }}
     >
       {/* Header Section */}
@@ -49,7 +37,7 @@ export default function TimeLine({ items }: TimelineProps) {
               color: '#0078ff',
               textTransform: 'uppercase',
               letterSpacing: '1.5px',
-              fontSize: { xs: '24px', md: '32px' }, // Responsive font size
+              fontSize: { xs: '24px', md: '32px' },
             }}
           >
             Timeline
@@ -58,7 +46,7 @@ export default function TimeLine({ items }: TimelineProps) {
         <Typography
           variant="body1"
           sx={{
-            fontSize: { xs: '14px', md: '18px' }, // Responsive font size
+            fontSize: { xs: '14px', md: '18px' },
             color: '#555',
             fontStyle: 'italic',
           }}
@@ -75,7 +63,7 @@ export default function TimeLine({ items }: TimelineProps) {
           gap: '20px',
           alignItems: 'center',
           width: '100%',
-          padding: { xs: '10px', md: '20px' }, // Responsive padding
+          padding: { xs: '10px', md: '20px' },
         }}
       >
         {items.map((item, index) => (

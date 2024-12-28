@@ -22,13 +22,21 @@ const keywordColors = [
 ];
 
 export default function WebsiteList() {
-  const [websites, setWebsites] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [filteredWebsites, setFilteredWebsites] = useState([]);
+  interface Website {
+    id: number;
+    name: string;
+    description: string;
+    link: string;
+    keywords: string[];
+  }
+
+  const [websites, setWebsites] = useState<Website[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [filteredWebsites, setFilteredWebsites] = useState<Website[]>([]);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
 
-  let keywordColorMap = {};
+  let keywordColorMap: { [key: string]: string } = {};
 
   useEffect(() => {
     const fetchWebsitesAndCategories = async () => {
@@ -45,10 +53,17 @@ export default function WebsiteList() {
         setCategories(fetchedCategories);
 
         // Generate keywordColorMap dynamically
-        keywordColorMap = fetchedCategories.reduce((map, category, index) => {
-          map[category] = keywordColors[index % keywordColors.length];
-          return map;
-        }, {});
+        keywordColorMap = fetchedCategories.reduce(
+          (
+            map: { [x: string]: string },
+            category: string | number,
+            index: number
+          ) => {
+            map[category] = keywordColors[index % keywordColors.length];
+            return map;
+          },
+          {}
+        );
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -168,14 +183,26 @@ export default function WebsiteList() {
                 marginBottom: '16px',
               }}
             >
-              {site.keywords.map((keyword, index) => (
-                <Chip
-                  key={index}
-                  label={keyword}
-                  color={keywordColorMap[keyword] || 'default'}
-                  variant="filled" // Filled style for better color visibility
-                />
-              ))}
+              {site.keywords.map((keyword, index) => {
+                if (typeof keyword !== 'string') return null;
+                return (
+                  <Chip
+                    key={index}
+                    label={keyword}
+                    color={
+                      (keywordColorMap[keyword] as
+                        | 'primary'
+                        | 'secondary'
+                        | 'success'
+                        | 'error'
+                        | 'warning'
+                        | 'info'
+                        | 'default') || 'default'
+                    }
+                    variant="filled"
+                  />
+                );
+              })}
             </Box>
           </CardContent>
           <CardActions>

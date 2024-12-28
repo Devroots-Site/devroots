@@ -45,7 +45,7 @@ export default function AboutMe() {
       title: 'KiK Textilien und Non-Food GmbH',
       jobTitle: 'Warehouse clerk',
       description: 'Wrok as a warehouse clerk.',
-      link: undefined,
+      link: '',
     },
     {
       startDate: '2017-09-01',
