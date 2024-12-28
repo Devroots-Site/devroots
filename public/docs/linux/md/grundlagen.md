@@ -161,7 +161,7 @@ Hier kann auch nach Regex gesucht werden.
 chown benutzername:gruppe <dateiname | verzeichnis >
 ```
 
-### 9.2  `chmod` - Ändern von Berechtigungen
+### 9.2 `chmod` - Ändern von Berechtigungen
 
 `chmo´d` ändert die Zugrifssrechte von Dateien & Berechtigungen.
 
@@ -188,17 +188,17 @@ Ugo heißt:
 
 Als Zahlen können diese auch folgende sein
 
-| Recht | Nummer Repräsentation|
-|--------|----------------------|
-| Leserechte | 4|
-| Schreibrechte | 2 |
-| Ausführungsrechte | 1 |
+| Recht             | Nummer Repräsentation |
+| ----------------- | --------------------- |
+| Leserechte        | 4                     |
+| Schreibrechte     | 2                     |
+| Ausführungsrechte | 1                     |
 
 **Hinweis** diese können auch kominiert werden.
 
 ## 10. Prozesse und Tasks verwalten
 
-Der Befehl `ps`  ermöglicht die Anzeige laufender Prozesse, wärende `kill` verwendet wird, um Prozesse zu beenden.
+Der Befehl `ps` ermöglicht die Anzeige laufender Prozesse, wärende `kill` verwendet wird, um Prozesse zu beenden.
 
 ```bash
 ps -ef   # Zeigt alle laufenden Prozesse an
@@ -228,7 +228,7 @@ df -h   # Zeigt die Festplattenbelegung an
 du -h verzeichnis   # Zeigt die Größe eines Verzeichnisses an
 ```
 
-## 13.  Netzwerkinfomationen
+## 13. Netzwerkinfomationen
 
 Die Befehle `ifconfig` oder `ip` zeigen Netzwerkschnittstellen an. Mit `ping` und `traceroute` kann die Netzwerkverbindung überprüft werden.
 

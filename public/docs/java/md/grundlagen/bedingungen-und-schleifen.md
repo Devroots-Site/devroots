@@ -105,7 +105,7 @@ for (int i = 0; i < 5; i++) {
     System.out.println("Zähler: " + i);
 }
 
-oder 
+oder
 
 int zahlen = {1, 2, 3, 4, 5};
 

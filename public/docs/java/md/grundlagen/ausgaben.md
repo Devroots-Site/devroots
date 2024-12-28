@@ -109,21 +109,21 @@ public class Main {
 
 In diesem Beispiel wird der Platzhalter `%s` durch den Wert von `name` ersetzt, `%d` durch den Wert von `age` und `%f` durch den Wert von `height`. Der Platzhalter `%.2f` gibt die Höhe auf zwei Dezimalstellen genau aus.
 
-| Platzhalter | Datentyp | Beispiel |
-|-------------|----------|----------|
-| `%s`        | String   | `String name = "Alice";` |
-| `%d`        | int      | `int age = 30;` |
-| `%f`        | double   | `double height = 1.75;` |
-| `%.2f`      | double   | `double height = 1.75;` |
-| `%n`        | Zeilenumbruch | |
-| `%%`        | Prozentzeichen | |
-| `%t`        | Datum / Uhrzeit | |
-| `%b`        | boolean  | |
-| `%c`        | char     | |
-| `%x`        | Hexadezimal | |
-| `%o`        | Oktal     | |
-| `%e`        | Exponential | |
-| `%g`        | Allgemein | |
-| `%h`        | Hash-Code | |
-| `%a`        | Hexadezimal-Floating-Point | |
-| `%p`        | Pointer  | |
+| Platzhalter | Datentyp                   | Beispiel                 |
+| ----------- | -------------------------- | ------------------------ |
+| `%s`        | String                     | `String name = "Alice";` |
+| `%d`        | int                        | `int age = 30;`          |
+| `%f`        | double                     | `double height = 1.75;`  |
+| `%.2f`      | double                     | `double height = 1.75;`  |
+| `%n`        | Zeilenumbruch              |                          |
+| `%%`        | Prozentzeichen             |                          |
+| `%t`        | Datum / Uhrzeit            |                          |
+| `%b`        | boolean                    |                          |
+| `%c`        | char                       |                          |
+| `%x`        | Hexadezimal                |                          |
+| `%o`        | Oktal                      |                          |
+| `%e`        | Exponential                |                          |
+| `%g`        | Allgemein                  |                          |
+| `%h`        | Hash-Code                  |                          |
+| `%a`        | Hexadezimal-Floating-Point |                          |
+| `%p`        | Pointer                    |                          |

@@ -73,13 +73,13 @@ gradle test
 
 JUnit bietet verschiedene Annotationen, die verwendet werden können, um Tests zu definieren und zu konfigurieren. Hier sind einige häufig verwendete JUnit-Annotationen:
 
-| Annotation        | Beschreibung                                                                 |
-|-------------------|------------------------------------------------------------------------------|
-| `@Test`           | Markiert eine Methode als Testfall.                                          |
-| `@BeforeAll`      | Markiert eine Methode, die vor allen Tests in der Klasse ausgeführt werden soll. |
-| `@BeforeEach`     | Markiert eine Methode, die vor jedem Test in der Klasse ausgeführt werden soll. |
-| `@AfterEach`      | Markiert eine Methode, die nach jedem Test in der Klasse ausgeführt werden soll. |
-| `@AfterAll`       | Markiert eine Methode, die nach allen Tests in der Klasse ausgeführt werden soll. |
+| Annotation    | Beschreibung                                                                      |
+| ------------- | --------------------------------------------------------------------------------- |
+| `@Test`       | Markiert eine Methode als Testfall.                                               |
+| `@BeforeAll`  | Markiert eine Methode, die vor allen Tests in der Klasse ausgeführt werden soll.  |
+| `@BeforeEach` | Markiert eine Methode, die vor jedem Test in der Klasse ausgeführt werden soll.   |
+| `@AfterEach`  | Markiert eine Methode, die nach jedem Test in der Klasse ausgeführt werden soll.  |
+| `@AfterAll`   | Markiert eine Methode, die nach allen Tests in der Klasse ausgeführt werden soll. |
 
 Diese Annotationen können verwendet werden, um Tests zu konfigurieren und vorzubereiten, z.B. um Testdaten zu initialisieren oder Ressourcen freizugeben.
 
@@ -87,15 +87,15 @@ Diese Annotationen können verwendet werden, um Tests zu konfigurieren und vorzu
 
 JUnit bietet verschiedene Assert-Methoden, die verwendet werden können, um Testergebnisse zu überprüfen. Hier sind einige häufig verwendete Assert-Methoden:
 
-| Methode           | Beschreibung                                                                 |
-|-------------------|------------------------------------------------------------------------------|
-| `assertEquals()`   | Überprüft, ob zwei Werte gleich sind.                                        |
-| `assertTrue()`     | Überprüft, ob ein Wert `true` ist.                                            |
-| `assertFalse()`    | Überprüft, ob ein Wert `false` ist.                                           |
-| `assertNotNull()`  | Überprüft, ob ein Wert nicht `null` ist.                                      |
-| `assertNull()`     | Überprüft, ob ein Wert `null` ist.                                            |
-| `assertThrows()`   | Überprüft, ob eine bestimmte Ausnahme geworfen wird.                         |
-| `assertTimeout()`  | Überprüft, ob eine Operation innerhalb einer bestimmten Zeit abgeschlossen wird. |
-| `assertAll()`      | Überprüft mehrere Bedingungen und gibt alle Fehlermeldungen zurück.           |
+| Methode           | Beschreibung                                                                     |
+| ----------------- | -------------------------------------------------------------------------------- |
+| `assertEquals()`  | Überprüft, ob zwei Werte gleich sind.                                            |
+| `assertTrue()`    | Überprüft, ob ein Wert `true` ist.                                               |
+| `assertFalse()`   | Überprüft, ob ein Wert `false` ist.                                              |
+| `assertNotNull()` | Überprüft, ob ein Wert nicht `null` ist.                                         |
+| `assertNull()`    | Überprüft, ob ein Wert `null` ist.                                               |
+| `assertThrows()`  | Überprüft, ob eine bestimmte Ausnahme geworfen wird.                             |
+| `assertTimeout()` | Überprüft, ob eine Operation innerhalb einer bestimmten Zeit abgeschlossen wird. |
+| `assertAll()`     | Überprüft mehrere Bedingungen und gibt alle Fehlermeldungen zurück.              |
 
 Diese Assert-Methoden können verwendet werden, um die erwarteten Ergebnisse eines Tests zu überprüfen und sicherzustellen, dass der Code korrekt funktioniert.

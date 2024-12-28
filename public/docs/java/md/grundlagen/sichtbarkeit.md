@@ -1,4 +1,4 @@
-# Sichtbarkeit  & Statik
+# Sichtbarkeit & Statik
 
 Die Sichtbarkeit von Klassen, Methoden und Attributen wird durch die Zugriffsmodifizierer `public`, `protected`, `default` und `private` gesteuert.
 
@@ -157,4 +157,4 @@ In diesem Beispiel wird die `static` Methode `add` der Klasse `MathUtils` aufger
 - `default` bedeutet, dass die Klasse, Methode oder das Attribut nur von Klassen im selben Paket zugegriffen werden kann.
 - `private` bedeutet, dass die Klasse, Methode oder das Attribut nur von der Klasse selbst zugegriffen werden kann.
 - `static` bedeutet, dass die Methode
-oder das Attribut auf Klassenebene definiert ist und von der Klasse selbst aufgerufen werden kann, ohne ein Objekt der Klasse zu erstellen.
+  oder das Attribut auf Klassenebene definiert ist und von der Klasse selbst aufgerufen werden kann, ohne ein Objekt der Klasse zu erstellen.

@@ -102,7 +102,7 @@ public class Animal {
 }
 
 public class Dog extends Animal {
-    
+
     public void makeSound() {
         System.out.println("Dog is barking");
     }
@@ -199,7 +199,7 @@ public class Animal {
 }
 
 public class Dog extends Animal {
-    
+
     @Override
     public void makeSound() {
         System.out.println("Dog is barking");

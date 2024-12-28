@@ -67,5 +67,5 @@ Methoden sind ein wichtiger Bestandteil der objektorientierten Programmierung in
 - Klassenmethoden sind Methoden, die auf Klassenebene definiert sind und ohne Objektinstanz aufgerufen werden können.
 - Instanzmethoden sind Methoden, die auf Objektebene definiert sind und nach der Erstellung eines Objekts aufgerufen werden können.
 - Methodenüberladung tritt auf, wenn mehrere Methoden denselben Namen haben, aber
-    unterschiedliche Parameterlisten haben.
+  unterschiedliche Parameterlisten haben.
 - Methoden sind ein wichtiger Bestandteil der objektorientierten Programmierung in Java und ermöglichen es, Code zu organisieren, zu strukturieren und wiederzuverwenden.

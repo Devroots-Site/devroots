@@ -42,7 +42,7 @@ In Java können Sie mit dem `break`- und `continue`-Statement die Ausführung vo
 public class Main {
     public static void main(String[] args) {
 
-Test: 
+Test:
         for (int i = 0; i < 10; i++) {
             if (i == 5) {
                 break test; // Exit the loop
@@ -104,7 +104,7 @@ public class Main {
 }
 ```
 
-In diesem Beispiel wird die `Main-Class` als `Main` festgelegt, was bedeutet, dass die Klasse `Main` die `main`-Methode enthält und als Einstiegspunkt für das Programm dient.  
+In diesem Beispiel wird die `Main-Class` als `Main` festgelegt, was bedeutet, dass die Klasse `Main` die `main`-Methode enthält und als Einstiegspunkt für das Programm dient.
 
 ## Lambda-Ausdrücke
 

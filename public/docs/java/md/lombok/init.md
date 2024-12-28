@@ -38,7 +38,7 @@ public class Person {
     @Getter @Setter
     private int age;
 }
-// 0der 
+// 0der
 
 import lombok.Data;
 
@@ -70,17 +70,17 @@ In diesem Beispiel wird die `toString()`-Methode automatisch generiert, die eine
 
 ## Anotations
 
-| Annotation     | Beschreibung                                                                 |
-| -------------- | ----------------------------------------------------------------------------- |
-| `@Getter`      | Generiert einen Getter für das Feld.                                          |
-| `@Setter`      | Generiert einen Setter für das Feld.                                          |
-| `@ToString`    | Generiert eine `toString()`-Methode für die Klasse.                           |
-| `@EqualsAndHashCode` | Generiert `equals()` und `hashCode()`-Methoden für die Klasse.            |
-| `@NoArgsConstructor` | Generiert einen Standardkonstruktor ohne Argumente.                        |
-| `@AllArgsConstructor` | Generiert einen Konstruktor mit allen Feldern der Klasse als Argumente.  |
-| `@Data`        | Kombiniert `@Getter`, `@Setter`, `@ToString`, `@EqualsAndHashCode` und `@AllArgsConstructor`. |
-| `@Builder`     | Generiert einen Builder für die Klasse.                                       |
-| `@Slf4j`       | Generiert ein SLF4J-Loggerfeld für die Klasse.                                |
+| Annotation            | Beschreibung                                                                                  |
+| --------------------- | --------------------------------------------------------------------------------------------- |
+| `@Getter`             | Generiert einen Getter für das Feld.                                                          |
+| `@Setter`             | Generiert einen Setter für das Feld.                                                          |
+| `@ToString`           | Generiert eine `toString()`-Methode für die Klasse.                                           |
+| `@EqualsAndHashCode`  | Generiert `equals()` und `hashCode()`-Methoden für die Klasse.                                |
+| `@NoArgsConstructor`  | Generiert einen Standardkonstruktor ohne Argumente.                                           |
+| `@AllArgsConstructor` | Generiert einen Konstruktor mit allen Feldern der Klasse als Argumente.                       |
+| `@Data`               | Kombiniert `@Getter`, `@Setter`, `@ToString`, `@EqualsAndHashCode` und `@AllArgsConstructor`. |
+| `@Builder`            | Generiert einen Builder für die Klasse.                                                       |
+| `@Slf4j`              | Generiert ein SLF4J-Loggerfeld für die Klasse.                                                |
 
 ## ToString bei listen
 

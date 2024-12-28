@@ -119,40 +119,40 @@ In diesem Beispiel wird der `UserService` erstellt, der das `UserRepository` ver
 
 JPA-Entitätsklassen sind Java-Klassen, die eine Datenbanktabelle repräsentieren. Sie werden verwendet, um Daten in einer relationalen Datenbank zu speichern und abzurufen. JPA-Entitätsklassen können mit der `@Entity`-Annotation gekennzeichnet werden, um sie als JPA-Entitäten zu definieren. Hier ist ein Beispiel für eine einfache JPA-Entitätsklasse:
 
-| JPA-Entitätsklasse | Beschreibung |
-| --- | --- |
-| `@Entity` | Definiert die Klasse als JPA-Entität. |
-| `@Table` | Definiert den Tabellennamen und andere Tabelleneigenschaften. |
-| `@Id` | Definiert das Primärschlüsselfeld der Entität. |
-| `@GeneratedValue` | Definiert die Strategie zur Generierung des Primärschlüssels. |
-| `@Column` | Definiert die Spalteneigenschaften wie Name, Länge und Nullbarkeit. |
-| `@OneToOne` | Definiert eine Eins-zu-Eins-Beziehung zu einer anderen Entität. |
-| `@OneToMany` | Definiert eine Eins-zu-Viele-Beziehung zu einer anderen Entität. |
-| `@ManyToOne` | Definiert eine Viele-zu-Eins-Beziehung zu einer anderen Entität. |
-| `@ManyToMany` | Definiert eine Viele-zu-Viele-Beziehung zu einer anderen Entität. |
-| `@JoinColumn` | Definiert die Spalte, die für die Verknüpfung verwendet wird. |
-| `@JoinTable` | Definiert die Verknüpfungstabelle für viele-zu-viele Beziehungen. |
-| `@Embedded` | Definiert eine eingebettete Entität. |
-| `@Embeddable` | Definiert eine eingebettete Klasse. |
-| `@Transient` | Definiert ein nicht persistierbares Feld. |
-| `@Version` | Definiert das Versionsfeld für die Optimistische Sperrung. |
-| `@NamedQuery` | Definiert eine benannte Abfrage für die Entität. |
-| `@NamedQueries` | Definiert eine Liste von benannten Abfragen für die Entität. |
-| `@NamedNativeQuery` | Definiert eine benannte native Abfrage für die Entität. |
-| `@NamedNativeQueries` | Definiert eine Liste von benannten nativen Abfragen für die Entität. |
-| `@SequenceGenerator` | Definiert einen Sequenzgenerator für die Primärschlüsselgenerierung. |
-| `@TableGenerator` | Definiert einen Tabellengenerator für die Primärschlüsselgenerierung. |
-| `@Inheritance` | Definiert die Vererbungsstrategie für die Entitätshierarchie. |
-| `@DiscriminatorColumn` | Definiert die Diskriminatorspalte für die Vererbung. |
-| `@DiscriminatorValue` | Definiert den Diskriminatorwert für die Entität. |
-| `@MappedSuperclass` | Definiert eine Superklasse für die gemeinsame Vererbung. |
-| `@EntityListeners` | Definiert die Listenerklassen für die Entität. |
-| `@PrePersist` | Definiert eine Methode, die vor dem Speichern der Entität aufgerufen wird. |
-| `@PostPersist` | Definiert eine Methode, die nach dem Speichern der Entität aufgerufen wird. |
-| `@PreUpdate` | Definiert eine Methode, die vor dem Aktualisieren der Entität aufgerufen wird. |
-| `@PostUpdate` | Definiert eine Methode, die nach dem Aktualisieren der Entität aufgerufen wird. |
-| `@PreRemove` | Definiert eine Methode, die vor dem Löschen der Entität aufgerufen wird. |
-| .... | .... |
+| JPA-Entitätsklasse     | Beschreibung                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------- |
+| `@Entity`              | Definiert die Klasse als JPA-Entität.                                           |
+| `@Table`               | Definiert den Tabellennamen und andere Tabelleneigenschaften.                   |
+| `@Id`                  | Definiert das Primärschlüsselfeld der Entität.                                  |
+| `@GeneratedValue`      | Definiert die Strategie zur Generierung des Primärschlüssels.                   |
+| `@Column`              | Definiert die Spalteneigenschaften wie Name, Länge und Nullbarkeit.             |
+| `@OneToOne`            | Definiert eine Eins-zu-Eins-Beziehung zu einer anderen Entität.                 |
+| `@OneToMany`           | Definiert eine Eins-zu-Viele-Beziehung zu einer anderen Entität.                |
+| `@ManyToOne`           | Definiert eine Viele-zu-Eins-Beziehung zu einer anderen Entität.                |
+| `@ManyToMany`          | Definiert eine Viele-zu-Viele-Beziehung zu einer anderen Entität.               |
+| `@JoinColumn`          | Definiert die Spalte, die für die Verknüpfung verwendet wird.                   |
+| `@JoinTable`           | Definiert die Verknüpfungstabelle für viele-zu-viele Beziehungen.               |
+| `@Embedded`            | Definiert eine eingebettete Entität.                                            |
+| `@Embeddable`          | Definiert eine eingebettete Klasse.                                             |
+| `@Transient`           | Definiert ein nicht persistierbares Feld.                                       |
+| `@Version`             | Definiert das Versionsfeld für die Optimistische Sperrung.                      |
+| `@NamedQuery`          | Definiert eine benannte Abfrage für die Entität.                                |
+| `@NamedQueries`        | Definiert eine Liste von benannten Abfragen für die Entität.                    |
+| `@NamedNativeQuery`    | Definiert eine benannte native Abfrage für die Entität.                         |
+| `@NamedNativeQueries`  | Definiert eine Liste von benannten nativen Abfragen für die Entität.            |
+| `@SequenceGenerator`   | Definiert einen Sequenzgenerator für die Primärschlüsselgenerierung.            |
+| `@TableGenerator`      | Definiert einen Tabellengenerator für die Primärschlüsselgenerierung.           |
+| `@Inheritance`         | Definiert die Vererbungsstrategie für die Entitätshierarchie.                   |
+| `@DiscriminatorColumn` | Definiert die Diskriminatorspalte für die Vererbung.                            |
+| `@DiscriminatorValue`  | Definiert den Diskriminatorwert für die Entität.                                |
+| `@MappedSuperclass`    | Definiert eine Superklasse für die gemeinsame Vererbung.                        |
+| `@EntityListeners`     | Definiert die Listenerklassen für die Entität.                                  |
+| `@PrePersist`          | Definiert eine Methode, die vor dem Speichern der Entität aufgerufen wird.      |
+| `@PostPersist`         | Definiert eine Methode, die nach dem Speichern der Entität aufgerufen wird.     |
+| `@PreUpdate`           | Definiert eine Methode, die vor dem Aktualisieren der Entität aufgerufen wird.  |
+| `@PostUpdate`          | Definiert eine Methode, die nach dem Aktualisieren der Entität aufgerufen wird. |
+| `@PreRemove`           | Definiert eine Methode, die vor dem Löschen der Entität aufgerufen wird.        |
+| ....                   | ....                                                                            |
 
 In diesem Beispiel wird die `User`-Klasse als JPA-Entität definiert, die eine Datenbanktabelle `user` repräsentiert. Die `@Id`-Annotation wird verwendet, um das Primärschlüsselfeld zu kennzeichnen.
 
