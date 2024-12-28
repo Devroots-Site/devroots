@@ -38,12 +38,12 @@ export default function DocsList() {
 
   const keywordColorMap: {
     [key: string]:
-      | 'primary'
-      | 'secondary'
-      | 'success'
-      | 'error'
-      | 'warning'
-      | 'info';
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'error'
+    | 'warning'
+    | 'info';
   } = {};
   categories.forEach((keyword, index) => {
     keywordColorMap[keyword] = keywordColors[index % keywordColors.length] as
@@ -59,8 +59,8 @@ export default function DocsList() {
     const fetchDocsAndCategories = async () => {
       try {
         const [docsResponse, categoriesResponse] = await Promise.all([
-          fetch('http://localhost:3000/docs/all'),
-          fetch('http://localhost:3000/docs/categories/all'),
+          fetch(import.meta.env.VITE_BE_IP + '/docs/all'),
+          fetch(import.meta.env.VITE_BE_IP + '/docs/categories/all'),
         ]);
 
         if (!docsResponse.ok || !categoriesResponse.ok) {

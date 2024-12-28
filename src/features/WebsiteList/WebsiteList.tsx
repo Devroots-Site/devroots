@@ -42,8 +42,8 @@ export default function WebsiteList() {
     const fetchWebsitesAndCategories = async () => {
       try {
         const [websitesResponse, categoriesResponse] = await Promise.all([
-          axios.get('http://localhost:3000/websites/all'),
-          axios.get('http://localhost:3000/websites/categories/all'),
+          axios.get(import.meta.env.VITE_BE_IP + "/websites/all"),
+          axios.get(import.meta.env.VITE_BE_IP + '/websites/categories/all'),
         ]);
 
         setWebsites(websitesResponse.data);

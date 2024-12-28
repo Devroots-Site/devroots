@@ -56,13 +56,13 @@ export default function ToolsList() {
 
   const keywordColorMap: {
     [key: string]:
-      | 'default'
-      | 'primary'
-      | 'secondary'
-      | 'success'
-      | 'error'
-      | 'warning'
-      | 'info';
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'error'
+    | 'warning'
+    | 'info';
   } = {};
   const keywords = Array.from(new Set(tools.flatMap((tool) => tool.keywords)));
   keywords.forEach((keyword, index) => {
@@ -79,7 +79,7 @@ export default function ToolsList() {
   useEffect(() => {
     const fetchTools = async () => {
       try {
-        const response = await fetch('http://localhost:3000/tools/all');
+        const response = await fetch(import.meta.env.VITE_BE_IP + '/tools/all');
         if (!response.ok) {
           throw new Error('Failed to fetch tools');
         }
