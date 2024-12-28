@@ -9,7 +9,7 @@ export default function Landing() {
     return (
         <Box sx={{ marginX: "24px", marginTop: "24px" }}>
             <Navbar />
-            <HeaderSection />
+            <HeaderSection title=" Your Ultimate Developer Hub" subtitle="Explore tools, guides, and resources designed to make coding simpler and more productive for every developer." />
             <Features />
             <Footer />
         </Box>

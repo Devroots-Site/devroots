@@ -1,7 +1,13 @@
 import { Box, Typography } from "@mui/material";
 import headerSectionLogo from "../../assets/headerSectionLogo.png";
 
-export default function HeaderSection() {
+type HeaderSectionProps = {
+    title: string,
+    subtitle: string;
+    srcPath?: string;
+};
+
+export default function HeaderSection({ title, subtitle, srcPath }: HeaderSectionProps) {
     return (
         <Box
             sx={{
@@ -27,7 +33,7 @@ export default function HeaderSection() {
                         marginBottom: "16px",
                     }}
                 >
-                    Your Ultimate Developer Hub
+                    {title}
                 </Typography>
                 <Typography
                     variant="body1"
@@ -36,7 +42,7 @@ export default function HeaderSection() {
                         lineHeight: "1.6",
                     }}
                 >
-                    Explore tools, guides, and resources designed to make coding simpler and more productive for every developer.
+                    {subtitle}
                 </Typography>
             </Box>
 
@@ -47,7 +53,7 @@ export default function HeaderSection() {
                 }}
             >
                 <img
-                    src={headerSectionLogo}
+                    src={srcPath || headerSectionLogo}
                     alt="Developer Computer"
                     style={{
                         width: "100%",
