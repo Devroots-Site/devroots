@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Box, Typography, Button, IconButton, Drawer } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -86,7 +86,7 @@ export default function Navbar() {
         >
           Contact Now
         </Button> */}
-        <CTAButton label="Contact now" />
+        <CTAButton label="Contact now" href='mailto:bichlerbastian@gmail.com' />
       </Box>
 
       {/* Mobile Hamburger Menu */}

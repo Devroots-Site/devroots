@@ -4,9 +4,6 @@ import { CTAButtonType } from './CTAButton.type';
 export default function CTAButton({
   label,
   href = '#',
-  rel = 'noopener noreferrer',
-  startIcon,
-  target = '_self',
 }: CTAButtonType) {
   return (
     <Button
@@ -26,9 +23,8 @@ export default function CTAButton({
         },
       }}
       href={href}
-      target={target}
-      rel={rel}
-      startIcon={startIcon}
+      target='_blank'
+      rel='noopener noreferrer'
     >
       {label}
     </Button>
