@@ -1,5 +1,5 @@
-Git Installation
-=================
+Git Installation 🪛
+===================
 
 
 Voraussetzungen

@@ -1,4 +1,4 @@
-Add 
+Add ➕
 ======================
 
 Das Kommando ``git add`` dient dazu, Änderungen von Dateien für den nächsten Commit in die sogenannte Staging-Area hinzuzufügen. Es gibt verschiedene Optionen, um spezifische Dateien oder Verzeichnisse hinzuzufügen.
