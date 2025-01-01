@@ -1,4 +1,4 @@
-Init & Repository Setup mit SSH ⬛
+Init + Repo with SSH ⬛
 ======================================
 
 Das Kommando ``git init`` dient dazu, ein neues Git-Repository zu initialisieren. Dies ist der erste Schritt, um die Versionskontrolle für ein Projekt zu starten.

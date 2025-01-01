@@ -43,12 +43,17 @@ Wir wünschen viel Erfolg beim Lernen und Arbeiten mit Git!
    md/add.rst
    md/branchAndCheckout.rst
    md/commit.rst
+   md/commitMessage.rst
    md/fetchAndpull.rst
    md/init.rst
+   md/origin.rst
    md/install.rst
+   md/log.rst
    md/merge.rst
    md/push.rst
    md/rebase.rst
    md/remote.rst
    md/rerverse_reset.rst
+   md/stash.rst
    md/status.rst
+   md/tag.rst
