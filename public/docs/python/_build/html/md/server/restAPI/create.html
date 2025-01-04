@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" /><link rel="search" title="Suche" href="../../../search.html" /><link rel="next" title="Info ℹ️" href="info.html" /><link rel="prev" title="Info zu FastAPI &amp; Uvicorn 🦄" href="../fastapiUndUvicorn.html" />
+<link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" /><link rel="search" title="Suche" href="../../../search.html" /><link rel="prev" title="Info ℹ️" href="info.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Restserver API - py-docs 2.1.0 Dokumentation</title>
+        <title>Erstellen des REST-API-Endpunkts / Servers 👩‍💻 - py-docs 2.1.0 Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -179,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -231,9 +231,9 @@
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Server</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Server</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../fastapiUndUvicorn.html">Info zu FastAPI &amp; Uvicorn 🦄</a></li>
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Restserver API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Restserver API</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Restserver API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Restserver API</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="info.html">Info ℹ️</a></li>
-<li class="toctree-l3"><a class="reference internal" href="create.html">Erstellen des REST-API-Endpunkts / Servers 👩‍💻</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Erstellen des REST-API-Endpunkts / Servers 👩‍💻</a></li>
 </ul>
 </li>
 </ul>
@@ -258,7 +258,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/md/server/restAPI/index.rst.txt" title="View this page">
+  <a class="muted-link" href="../../../_sources/md/server/restAPI/create.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -272,31 +272,154 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="restserver-api">
-<h1>Restserver API<a class="headerlink" href="#restserver-api" title="Link to this heading">¶</a></h1>
-<p>In diesem Bereich geht es um die Erstellung eines REST-Services. Die Technologien, die dafür verwendet werden, sind FastAPI und Uvicorn.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis</span></p>
+          <section id="erstellen-des-rest-api-endpunkts-servers">
+<h1>Erstellen des REST-API-Endpunkts / Servers 👩‍💻<a class="headerlink" href="#erstellen-des-rest-api-endpunkts-servers" title="Link to this heading">¶</a></h1>
+<p>Diese Anleitung zeigt dir Schritt für Schritt, wie du einen REST-API-Server mit FastAPI und Uvicorn erstellst, der typische HTTP-Methoden wie GET, POST, PUT und DELETE implementiert.</p>
+<section id="voraussetzungen">
+<h2>Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Link to this heading">¶</a></h2>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="info.html">Info ℹ️</a></li>
-<li class="toctree-l1"><a class="reference internal" href="create.html">Erstellen des REST-API-Endpunkts / Servers 👩‍💻</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="create.html#voraussetzungen">Voraussetzungen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#schritt-1-projektstruktur-erstellen">Schritt 1: Projektstruktur erstellen 📂</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#schritt-2-fastapi-anwendung-einrichten">Schritt 2: FastAPI-Anwendung einrichten 🚀</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#schritt-3-endpunkte-fur-crud-operationen-erstellen">Schritt 3: Endpunkte für CRUD-Operationen erstellen 🛠️</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#schritt-4-server-starten">Schritt 4: Server starten 🚀</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#schritt-5-endpunkte-testen">Schritt 5: Endpunkte testen 🧪</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#fazit">Fazit 🤓</a></li>
-</ul>
+<li><p><strong>Python</strong>: Stelle sicher, dass Python 3.7 oder höher installiert ist.</p></li>
+<li><p><strong>FastAPI und Uvicorn</strong>: Installiere die Bibliotheken mit folgendem Befehl:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>fastapi<span class="w"> </span>uvicorn
+</pre></div>
+</div>
 </li>
 </ul>
+</section>
+<section id="schritt-1-projektstruktur-erstellen">
+<h2>Schritt 1: Projektstruktur erstellen 📂<a class="headerlink" href="#schritt-1-projektstruktur-erstellen" title="Link to this heading">¶</a></h2>
+<p>Erstelle die folgende Ordnerstruktur für dein Projekt:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>my_project/
+├── main.py  # Hauptdatei des Projekts
+</pre></div>
 </div>
+</section>
+<section id="schritt-2-fastapi-anwendung-einrichten">
+<h2>Schritt 2: FastAPI-Anwendung einrichten 🚀<a class="headerlink" href="#schritt-2-fastapi-anwendung-einrichten" title="Link to this heading">¶</a></h2>
+<p>Erstelle eine Datei namens <cite>main.py</cite> und füge den folgenden Basiscode hinzu:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">root</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Willkommen bei deinem FastAPI-Server!&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="schritt-3-endpunkte-fur-crud-operationen-erstellen">
+<h2>Schritt 3: Endpunkte für CRUD-Operationen erstellen 🛠️<a class="headerlink" href="#schritt-3-endpunkte-fur-crud-operationen-erstellen" title="Link to this heading">¶</a></h2>
+<p>Füge die CRUD-Endpunkte hinzu:</p>
+<ul class="simple">
+<li><p><strong>GET</strong>: Daten abrufen</p></li>
+<li><p><strong>POST</strong>: Neue Daten hinzufügen</p></li>
+<li><p><strong>PUT</strong>: Vorhandene Daten aktualisieren</p></li>
+<li><p><strong>DELETE</strong>: Daten löschen</p></li>
+</ul>
+<p>Aktualisiere <cite>main.py</cite> wie folgt:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="c1"># Fiktive Datenbank</span>
+<span class="n">items</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Item 1&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Dies ist das erste Item.&quot;</span><span class="p">},</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Item 2&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Dies ist das zweite Item.&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># GET: Alle Items abrufen</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_items</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">items</span>
+
+<span class="c1"># GET: Ein einzelnes Item abrufen</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">items</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">item_id</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Item nicht gefunden&quot;</span><span class="p">})</span>
+
+<span class="c1"># POST: Ein neues Item hinzufügen</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">item_id</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Item mit dieser ID existiert bereits.&quot;</span><span class="p">}</span>
+    <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">description</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+
+<span class="c1"># PUT: Ein Item aktualisieren</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">item_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Item nicht gefunden.&quot;</span><span class="p">}</span>
+    <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">][</span><span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">description</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+
+<span class="c1"># DELETE: Ein Item löschen</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">delete_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">item_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Item nicht gefunden.&quot;</span><span class="p">}</span>
+    <span class="n">deleted_item</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">item_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;deleted&quot;</span><span class="p">:</span> <span class="n">deleted_item</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="schritt-4-server-starten">
+<h2>Schritt 4: Server starten 🚀<a class="headerlink" href="#schritt-4-server-starten" title="Link to this heading">¶</a></h2>
+<p>Starte den Server mit dem folgenden Befehl:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uvicorn<span class="w"> </span>main:app<span class="w"> </span>--reload
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>main</strong>: Der Name der Python-Datei ohne <cite>.py</cite>.</p></li>
+<li><p><strong>app</strong>: Die FastAPI-Anwendung, die in der Datei definiert ist.</p></li>
+<li><p><strong>–reload</strong>: Aktiviert automatisches Neuladen bei Codeänderungen.</p></li>
+</ul>
+<p>Der Server wird unter <cite>http://127.0.0.1:8000</cite> gestartet.</p>
+</section>
+<section id="schritt-5-endpunkte-testen">
+<h2>Schritt 5: Endpunkte testen 🧪<a class="headerlink" href="#schritt-5-endpunkte-testen" title="Link to this heading">¶</a></h2>
+<p>Du kannst die API mit Tools wie <strong>Postman</strong>, <strong>cURL</strong> oder direkt im Browser testen.
+FastAPI bietet auch eine automatisch generierte Dokumentation unter diesen URLs:</p>
+<ul class="simple">
+<li><p>Swagger UI: <cite>http://127.0.0.1:8000/docs</cite></p></li>
+<li><p>ReDoc: <cite>http://127.0.0.1:8000/redoc</cite></p></li>
+</ul>
+<p>Beispiele für cURL-Befehle:</p>
+<ul>
+<li><p><strong>GET</strong> alle Items:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://127.0.0.1:8000/items&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>POST</strong> ein neues Item:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;http://127.0.0.1:8000/items&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;item_id=3&amp;name=Item3&amp;description=Neues Item&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>PUT</strong> ein Item aktualisieren:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span><span class="s2">&quot;http://127.0.0.1:8000/items/3&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;name=Aktualisiertes Item&amp;description=Geänderte Beschreibung&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>DELETE</strong> ein Item:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </span><span class="s2">&quot;http://127.0.0.1:8000/items/3&quot;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="fazit">
+<h2>Fazit 🤓<a class="headerlink" href="#fazit" title="Link to this heading">¶</a></h2>
+<p>Du hast erfolgreich einen FastAPI-Server mit CRUD-Endpunkten erstellt und gestartet.
+Dieser Server kann leicht erweitert werden, um komplexere Anwendungsfälle zu unterstützen.</p>
+</section>
 </section>
 
         </article>
@@ -304,23 +427,15 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="info.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Info ℹ️</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="../fastapiUndUvicorn.html">
+          
+          <a class="prev-page" href="info.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Info zu FastAPI &amp; Uvicorn 🦄</div>
+                <div class="title">Info ℹ️</div>
                 
               </div>
             </a>
@@ -342,8 +457,33 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Erstellen des REST-API-Endpunkts / Servers 👩‍💻</a><ul>
+<li><a class="reference internal" href="#voraussetzungen">Voraussetzungen</a></li>
+<li><a class="reference internal" href="#schritt-1-projektstruktur-erstellen">Schritt 1: Projektstruktur erstellen 📂</a></li>
+<li><a class="reference internal" href="#schritt-2-fastapi-anwendung-einrichten">Schritt 2: FastAPI-Anwendung einrichten 🚀</a></li>
+<li><a class="reference internal" href="#schritt-3-endpunkte-fur-crud-operationen-erstellen">Schritt 3: Endpunkte für CRUD-Operationen erstellen 🛠️</a></li>
+<li><a class="reference internal" href="#schritt-4-server-starten">Schritt 4: Server starten 🚀</a></li>
+<li><a class="reference internal" href="#schritt-5-endpunkte-testen">Schritt 5: Endpunkte testen 🧪</a></li>
+<li><a class="reference internal" href="#fazit">Fazit 🤓</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

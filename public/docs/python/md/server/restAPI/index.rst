@@ -8,3 +8,7 @@ In diesem Bereich geht es um die Erstellung eines REST-Services. Die Technologie
    :caption: Inhaltsverzeichnis
     
    info
+   create
+   middleware
+   cookies
+   jwt
