@@ -14,9 +14,8 @@ py-docs documentation
 
 
    md/grundlagen/index
-
-
    md/pakete/index
    md/pip/index
+   md/server/index
 
 
