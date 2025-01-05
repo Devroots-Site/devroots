@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" /><link rel="search" title="Suche" href="../../search.html" /><link rel="next" title="Datetime" href="datetime.html" /><link rel="prev" title="Variablen" href="../grundlagen/variablen.html" />
+<link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" /><link rel="search" title="Suche" href="../../search.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Pakete 📦 - py-docs 2.1.0 Dokumentation</title>
+        <title>Pydantic in Python - py-docs 2.1.0 Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -179,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -203,10 +203,9 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../grundlagen/index.html">Python grundlagen</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Python grundlagen</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../grundlagen/ausnahmen.html">Ausnahmen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../grundlagen/class.html">Python Klassen 🔲</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grundlagen/bedingungen.html">Bedinungen und Schleifen 🎗️</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grundlagen/dateinverarbeitung.html">Dateiverwaltung 🔨</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../grundlagen/funktionen.html">Funktionen ✨</a></li>
@@ -217,12 +216,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../grundlagen/variablen.html">Variablen</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Pakete 📦</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Pakete 📦</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Pakete 📦</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Pakete 📦</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="datetime.html">Datetime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="erstellen_und_einbinden.html">Erstellen und Einbinden von Paketen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="math.html">Math</a></li>
 <li class="toctree-l2"><a class="reference internal" href="os.html">OS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pydantic.html">Pydantic in Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regex.html">re Modul</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sys.html">Sys</a></li>
 </ul>
@@ -237,7 +235,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../server/restAPI/info.html">Info ℹ️</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../server/restAPI/create.html">Erstellen des REST-API-Endpunkts / Servers 👩‍💻</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../server/restAPI/middleware.html">Middleware-Konfiguration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../server/restAPI/cookies.html">Cookies erstellen und im Browser speichern 🍪</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../server/restAPI/jwt.html">JWT (JSON Web Token) 💻</a></li>
 </ul>
 </li>
@@ -263,7 +260,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/md/pakete/index.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/md/pakete/pydantic.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -277,61 +274,148 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="pakete">
-<h1>Pakete 📦<a class="headerlink" href="#pakete" title="Link to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="datetime.html">Datetime</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="datetime.html#import">Import</a></li>
-<li class="toctree-l2"><a class="reference internal" href="datetime.html#ein-datetime-objekt-erstellen">Ein datetime-Objekt erstellen</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="erstellen_und_einbinden.html">Erstellen und Einbinden von Paketen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="erstellen_und_einbinden.html#erstellen-eines-pakets">Erstellen eines Pakets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="erstellen_und_einbinden.html#einbinden-eines-pakets">Einbinden eines Pakets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="erstellen_und_einbinden.html#verwendung-von-from-importen">Verwendung von <code class="docutils literal notranslate"><span class="pre">from</span></code>-Importen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="erstellen_und_einbinden.html#verwendung-von-as-aliasen">Verwendung von <code class="docutils literal notranslate"><span class="pre">as</span></code>-Aliasen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="erstellen_und_einbinden.html#installieren-von-paketen">Installieren von Paketen</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="math.html">Math</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="math.html#import-math">import math</a></li>
-<li class="toctree-l2"><a class="reference internal" href="math.html#funktionen-und-konstanten">Funktionen und Konstanten</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="os.html">OS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pydantic.html">Pydantic in Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pydantic.html#einleitung">Einleitung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pydantic.html#grundkonzept">Grundkonzept</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pydantic.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pydantic.html#beispiel-grundlegendes-pydantic-modell">Beispiel: Grundlegendes Pydantic-Modell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pydantic.html#validierung-und-fehlerbehandlung">Validierung und Fehlerbehandlung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pydantic.html#zusatzliche-funktionalitaten-von-pydantic">Zusätzliche Funktionalitäten von Pydantic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pydantic.html#vorteile-von-pydantic">Vorteile von Pydantic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pydantic.html#nachteile-von-pydantic">Nachteile von Pydantic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pydantic.html#wann-sollte-man-pydantic-verwenden">Wann sollte man Pydantic verwenden?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pydantic.html#fazit">Fazit</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="regex.html">re Modul</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="regex.html#ubersicht-der-re-funktionen-und-methoden">Übersicht der <cite>re</cite>-Funktionen und -Methoden</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regex.html#erzeugen-eines-regex-objekts">Erzeugen eines Regex-Objekts</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="sys.html">Sys</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sys.html#verwendung-von-sys">Verwendung von <cite>sys</cite></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sys.html#ubersicht-der-sys-funktionen-und-variablen">Übersicht der <cite>sys</cite>-Funktionen und -Variablen</a></li>
-</ul>
-</li>
-</ul>
+          <section id="pydantic-in-python">
+<h1>Pydantic in Python<a class="headerlink" href="#pydantic-in-python" title="Link to this heading">¶</a></h1>
+<section id="einleitung">
+<h2>Einleitung<a class="headerlink" href="#einleitung" title="Link to this heading">¶</a></h2>
+<p><strong>Pydantic</strong> ist eine leistungsstarke Python-Bibliothek, die zur Validierung und Typisierung von Daten verwendet wird. Sie basiert auf Python-Typannotationen und bietet einfache, aber robuste Mechanismen, um Daten zu verarbeiten und sicherzustellen, dass sie den erwarteten Formaten entsprechen. Pydantic wird oft in Webanwendungen, APIs und Datenverarbeitungsprojekten eingesetzt, um konsistente und valide Daten zu garantieren.</p>
+</section>
+<section id="grundkonzept">
+<h2>Grundkonzept<a class="headerlink" href="#grundkonzept" title="Link to this heading">¶</a></h2>
+<p>Pydantic verwendet <strong>Modelle</strong>, die von der Basisklasse <cite>BaseModel</cite> erben. Diese Modelle definieren die Struktur und die Typen der erwarteten Daten. Pydantic übernimmt automatisch die Validierung und Konvertierung der Eingabedaten.</p>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
+<p>Sie können Pydantic einfach über pip installieren:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pydantic
+</pre></div>
 </div>
+</section>
+<section id="beispiel-grundlegendes-pydantic-modell">
+<h2>Beispiel: Grundlegendes Pydantic-Modell<a class="headerlink" href="#beispiel-grundlegendes-pydantic-modell" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="k">class</span> <span class="nc">Benutzer</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">alter</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="n">daten</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;alter&quot;</span><span class="p">:</span> <span class="s2">&quot;25&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;alice@example.com&quot;</span><span class="p">}</span>
+<span class="n">benutzer</span> <span class="o">=</span> <span class="n">Benutzer</span><span class="p">(</span><span class="o">**</span><span class="n">daten</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">benutzer</span><span class="p">)</span>
+<span class="c1"># Ausgabe: name=&#39;Alice&#39; alter=25 email=&#39;alice@example.com&#39;</span>
+</pre></div>
+</div>
+<p>In diesem Beispiel:
+- Das Modell <cite>Benutzer</cite> definiert die erwarteten Felder und deren Typen.
+- Pydantic validiert die Eingabedaten und konvertiert z. B. die Zeichenkette <cite>„25“</cite> automatisch in eine Ganzzahl (<cite>int</cite>).</p>
+</section>
+<section id="validierung-und-fehlerbehandlung">
+<h2>Validierung und Fehlerbehandlung<a class="headerlink" href="#validierung-und-fehlerbehandlung" title="Link to this heading">¶</a></h2>
+<p>Wenn die Eingabedaten ungültig sind, wirft Pydantic eine Fehlermeldung:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">daten</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;alter&quot;</span><span class="p">:</span> <span class="s2">&quot;nicht_eine_zahl&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;alice@example.com&quot;</span><span class="p">}</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">benutzer</span> <span class="o">=</span> <span class="n">Benutzer</span><span class="p">(</span><span class="o">**</span><span class="n">daten</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+<span class="c1"># Ausgabe: 1 validation error for Benutzer</span>
+<span class="c1"># alter</span>
+<span class="c1">#   value is not a valid integer (type=type_error.integer)</span>
+</pre></div>
+</div>
+</section>
+<section id="zusatzliche-funktionalitaten-von-pydantic">
+<h2>Zusätzliche Funktionalitäten von Pydantic<a class="headerlink" href="#zusatzliche-funktionalitaten-von-pydantic" title="Link to this heading">¶</a></h2>
+<p>### Standardwerte</p>
+<p>Felder in Pydantic-Modellen können Standardwerte haben:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Benutzer</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">is_admin</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">benutzer</span> <span class="o">=</span> <span class="n">Benutzer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">benutzer</span><span class="o">.</span><span class="n">is_admin</span><span class="p">)</span>  <span class="c1"># Ausgabe: False</span>
+</pre></div>
+</div>
+<p>### Verschachtelte Modelle</p>
+<p>Pydantic unterstützt verschachtelte Modelle:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Adresse</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">stadt</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">land</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="k">class</span> <span class="nc">Benutzer</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">adresse</span><span class="p">:</span> <span class="n">Adresse</span>
+
+<span class="n">daten</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;adresse&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;stadt&quot;</span><span class="p">:</span> <span class="s2">&quot;Berlin&quot;</span><span class="p">,</span> <span class="s2">&quot;land&quot;</span><span class="p">:</span> <span class="s2">&quot;Deutschland&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">benutzer</span> <span class="o">=</span> <span class="n">Benutzer</span><span class="p">(</span><span class="o">**</span><span class="n">daten</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">benutzer</span><span class="o">.</span><span class="n">adresse</span><span class="o">.</span><span class="n">stadt</span><span class="p">)</span>  <span class="c1"># Ausgabe: Berlin</span>
+</pre></div>
+</div>
+<p>### Validierungsregeln</p>
+<p>Sie können benutzerdefinierte Validierungslogik mit dem Decorator <cite>&#64;validator</cite> hinzufügen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">validator</span>
+
+<span class="k">class</span> <span class="nc">Benutzer</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">alter</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="nd">@field_validator</span><span class="p">(</span><span class="s2">&quot;alter&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">alter_muss_positiv_sein</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Das Alter muss positiv sein.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">v</span>
+
+<span class="n">daten</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;alter&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">}</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">benutzer</span> <span class="o">=</span> <span class="n">Benutzer</span><span class="p">(</span><span class="o">**</span><span class="n">daten</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+<span class="c1"># Ausgabe: 1 validation error for Benutzer</span>
+<span class="c1"># alter</span>
+<span class="c1">#   Das Alter muss positiv sein. (type=value_error)</span>
+</pre></div>
+</div>
+</section>
+<section id="vorteile-von-pydantic">
+<h2>Vorteile von Pydantic<a class="headerlink" href="#vorteile-von-pydantic" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Einfachheit</strong>: Intuitive Syntax und leichte Integration.</p></li>
+<li><p><strong>Automatische Typkonvertierung</strong>: Konvertiert Eingabedaten in die erwarteten Python-Typen.</p></li>
+<li><p><strong>Robuste Validierung</strong>: Sorgt für Datenkonsistenz und Sicherheit.</p></li>
+<li><p><strong>Unterstützung von JSON und andere Formate</strong>: Modelle können leicht serialisiert und deserialisiert werden.</p></li>
+</ol>
+</section>
+<section id="nachteile-von-pydantic">
+<h2>Nachteile von Pydantic<a class="headerlink" href="#nachteile-von-pydantic" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Performance</strong>: Die Validierung kann bei sehr großen Datenmengen langsamer sein als manuelle Lösungen.</p></li>
+<li><p><strong>Eingeschränkte Dynamik</strong>: Bei stark dynamischen oder unvorhersehbaren Datenstrukturen kann die Modellierung komplex werden.</p></li>
+</ol>
+</section>
+<section id="wann-sollte-man-pydantic-verwenden">
+<h2>Wann sollte man Pydantic verwenden?<a class="headerlink" href="#wann-sollte-man-pydantic-verwenden" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>API-Datenvalidierung</strong>: Sicherstellen, dass Eingaben von Nutzern oder Clients korrekt sind.</p></li>
+<li><p><strong>Datenverarbeitung</strong>: Garantieren, dass Daten von externen Quellen (z. B. Dateien, Datenbanken) valide und konsistent sind.</p></li>
+<li><p><strong>Typisierte Anwendungen</strong>: Erstellen von Anwendungen, die von Typannotationen profitieren.</p></li>
+</ul>
+</section>
+<section id="fazit">
+<h2>Fazit<a class="headerlink" href="#fazit" title="Link to this heading">¶</a></h2>
+<p>Pydantic ist ein leistungsfähiges Werkzeug, um Daten in Python-Anwendungen sicher und effizient zu handhaben. Es ermöglicht einfache Datenvalidierung, Typkonvertierung und Fehlerbehandlung, was es zu einer hervorragenden Wahl für moderne Python-Projekte macht.</p>
+</section>
 </section>
 
         </article>
@@ -339,26 +423,8 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="datetime.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Datetime</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="../grundlagen/variablen.html">
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">Variablen</div>
-                
-              </div>
-            </a>
+          
+          
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -377,8 +443,36 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Pydantic in Python</a><ul>
+<li><a class="reference internal" href="#einleitung">Einleitung</a></li>
+<li><a class="reference internal" href="#grundkonzept">Grundkonzept</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#beispiel-grundlegendes-pydantic-modell">Beispiel: Grundlegendes Pydantic-Modell</a></li>
+<li><a class="reference internal" href="#validierung-und-fehlerbehandlung">Validierung und Fehlerbehandlung</a></li>
+<li><a class="reference internal" href="#zusatzliche-funktionalitaten-von-pydantic">Zusätzliche Funktionalitäten von Pydantic</a></li>
+<li><a class="reference internal" href="#vorteile-von-pydantic">Vorteile von Pydantic</a></li>
+<li><a class="reference internal" href="#nachteile-von-pydantic">Nachteile von Pydantic</a></li>
+<li><a class="reference internal" href="#wann-sollte-man-pydantic-verwenden">Wann sollte man Pydantic verwenden?</a></li>
+<li><a class="reference internal" href="#fazit">Fazit</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

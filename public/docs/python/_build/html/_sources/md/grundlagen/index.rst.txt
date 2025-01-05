@@ -6,6 +6,7 @@ Python grundlagen
    :caption: Contents:
 
    ausnahmen
+   class
    bedingungen
    dateinverarbeitung
    funktionen

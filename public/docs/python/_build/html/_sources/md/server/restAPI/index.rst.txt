@@ -9,3 +9,6 @@ In diesem Bereich geht es um die Erstellung eines REST-Services. Die Technologie
     
    info
    create
+   middleware
+   cookies
+   jwt

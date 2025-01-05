@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" /><link rel="search" title="Suche" href="../../../search.html" /><link rel="next" title="Info ℹ️" href="info.html" /><link rel="prev" title="Info zu FastAPI &amp; Uvicorn 🦄" href="../fastapiUndUvicorn.html" />
+<link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" /><link rel="search" title="Suche" href="../../../search.html" /><link rel="prev" title="&lt;no title&gt;" href="cookies.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Restserver API - py-docs 2.1.0 Dokumentation</title>
+        <title>JWT (JSON Web Token) 💻 - py-docs 2.1.0 Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -179,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -231,12 +231,11 @@
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Server</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Server</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../fastapiUndUvicorn.html">Info zu FastAPI &amp; Uvicorn 🦄</a></li>
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Restserver API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Restserver API</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Restserver API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Restserver API</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="info.html">Info ℹ️</a></li>
 <li class="toctree-l3"><a class="reference internal" href="create.html">Erstellen des REST-API-Endpunkts / Servers 👩‍💻</a></li>
 <li class="toctree-l3"><a class="reference internal" href="middleware.html">Middleware-Konfiguration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cookies.html">Cookies erstellen und im Browser speichern 🍪</a></li>
-<li class="toctree-l3"><a class="reference internal" href="jwt.html">JWT (JSON Web Token) 💻</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">JWT (JSON Web Token) 💻</a></li>
 </ul>
 </li>
 </ul>
@@ -261,7 +260,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/md/server/restAPI/index.rst.txt" title="View this page">
+  <a class="muted-link" href="../../../_sources/md/server/restAPI/jwt.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -275,53 +274,122 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="restserver-api">
-<h1>Restserver API<a class="headerlink" href="#restserver-api" title="Link to this heading">¶</a></h1>
-<p>In diesem Bereich geht es um die Erstellung eines REST-Services. Die Technologien, die dafür verwendet werden, sind FastAPI und Uvicorn.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="info.html">Info ℹ️</a></li>
-<li class="toctree-l1"><a class="reference internal" href="create.html">Erstellen des REST-API-Endpunkts / Servers 👩‍💻</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="create.html#voraussetzungen">Voraussetzungen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#schritt-1-projektstruktur-erstellen">Schritt 1: Projektstruktur erstellen 📂</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#schritt-2-fastapi-anwendung-einrichten">Schritt 2: FastAPI-Anwendung einrichten 🚀</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#schritt-3-endpunkte-fur-crud-operationen-erstellen">Schritt 3: Endpunkte für CRUD-Operationen erstellen 🛠️</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#schritt-4-server-starten">Schritt 4: Server starten 🚀</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#schritt-5-endpunkte-testen">Schritt 5: Endpunkte testen 🧪</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#fazit">Fazit 🤓</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="middleware.html">Middleware-Konfiguration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="middleware.html#erstellen-und-konfigurieren-einer-middleware">Erstellen und Konfigurieren einer Middleware</a></li>
-<li class="toctree-l2"><a class="reference internal" href="middleware.html#eingebaute-middleware-verwenden">Eingebaute Middleware verwenden</a></li>
-<li class="toctree-l2"><a class="reference internal" href="middleware.html#fazit">Fazit</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="cookies.html">Cookies erstellen und im Browser speichern 🍪</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cookies.html#schritt-1-cookie-setzen">Schritt 1: Cookie setzen 🤳</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cookies.html#schritt-2-cookie-im-browser-uberprufen">Schritt 2: Cookie im Browser überprüfen 🕵️</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cookies.html#schritt-3-cookie-lesen">Schritt 3: Cookie lesen 📖</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cookies.html#fazit">Fazit</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="jwt.html">JWT (JSON Web Token) 💻</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="jwt.html#was-ist-ein-jwt">Was ist ein JWT? 🤔</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jwt.html#wie-wird-ein-jwt-erstellt">Wie wird ein JWT erstellt? 🛠️</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jwt.html#wie-wird-ein-jwt-validiert">Wie wird ein JWT validiert? 🕵️</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jwt.html#wann-sollte-man-jwt-verwenden">Wann sollte man JWT verwenden? 🤝</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jwt.html#unterschied-zwischen-jwt-und-cookies">Unterschied zwischen JWT und Cookies 🍪</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jwt.html#fazit">Fazit</a></li>
-</ul>
-</li>
-</ul>
+          <section id="jwt-json-web-token">
+<h1>JWT (JSON Web Token) 💻<a class="headerlink" href="#jwt-json-web-token" title="Link to this heading">¶</a></h1>
+<p>Ein <strong>JSON Web Token (JWT)</strong> ist ein kompakter, URL-sicherer Standard, der zur Authentifizierung und
+Informationsübertragung zwischen zwei Parteien verwendet wird. JWTs sind besonders nützlich für stateless
+Authentifizierung und werden oft in modernen Web- und API-Anwendungen eingesetzt.</p>
+<section id="was-ist-ein-jwt">
+<h2>Was ist ein JWT? 🤔<a class="headerlink" href="#was-ist-ein-jwt" title="Link to this heading">¶</a></h2>
+<p>Ein JWT besteht aus drei Teilen, die durch Punkte (.) getrennt sind:</p>
+<ol class="arabic simple">
+<li><p><strong>Header</strong>: Enthält Metadaten wie den Typ des Tokens und den Signaturalgorithmus.</p></li>
+<li><p><strong>Payload</strong>: Enthält die zu übertragenden Daten, z. B. Benutzerinformationen oder Berechtigungen.</p></li>
+<li><p><strong>Signature</strong>: Eine digitale Signatur, die die Integrität des Tokens sicherstellt.</p></li>
+</ol>
+<p><strong>Beispiel für ein JWT:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMjM0NTY3ODkwfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+</pre></div>
 </div>
+</section>
+<section id="wie-wird-ein-jwt-erstellt">
+<h2>Wie wird ein JWT erstellt? 🛠️<a class="headerlink" href="#wie-wird-ein-jwt-erstellt" title="Link to this heading">¶</a></h2>
+<p>JWTs werden mit einer Bibliothek wie <cite>PyJWT</cite> in Python erstellt. Die Signatur stellt sicher, dass die
+Payload nicht manipuliert wurde.</p>
+<p><strong>Beispiel:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jwt</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s2">&quot;mein-geheimer-schluessel&quot;</span>
+
+<span class="k">def</span> <span class="nf">create_jwt</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="n">user_id</span><span class="p">,</span>
+        <span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Ablaufzeit</span>
+    <span class="p">}</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">SECRET_KEY</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;HS256&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">token</span>
+
+<span class="n">token</span> <span class="o">=</span> <span class="n">create_jwt</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="wie-wird-ein-jwt-validiert">
+<h2>Wie wird ein JWT validiert? 🕵️<a class="headerlink" href="#wie-wird-ein-jwt-validiert" title="Link to this heading">¶</a></h2>
+<p>Der Server kann ein JWT überprüfen, indem er die Signatur validiert und sicherstellt, dass das Token nicht abgelaufen ist.</p>
+<p><strong>Beispiel:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">validate_jwt</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">decoded</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">SECRET_KEY</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;HS256&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">decoded</span>
+    <span class="k">except</span> <span class="n">jwt</span><span class="o">.</span><span class="n">ExpiredSignatureError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Token abgelaufen&quot;</span><span class="p">}</span>
+    <span class="k">except</span> <span class="n">jwt</span><span class="o">.</span><span class="n">InvalidTokenError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Ungültiges Token&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="wann-sollte-man-jwt-verwenden">
+<h2>Wann sollte man JWT verwenden? 🤝<a class="headerlink" href="#wann-sollte-man-jwt-verwenden" title="Link to this heading">¶</a></h2>
+<p>JWTs eignen sich ideal für:</p>
+<ul class="simple">
+<li><p><strong>APIs</strong>: Für die Authentifizierung von Benutzern in stateless Anwendungen.</p></li>
+<li><p><strong>Single-Page-Applications (SPAs)</strong>: Zum Schutz von geschützten Routen.</p></li>
+<li><p><strong>Microservices</strong>: Um sichere Kommunikation zwischen unabhängigen Diensten zu ermöglichen.</p></li>
+</ul>
+</section>
+<section id="unterschied-zwischen-jwt-und-cookies">
+<h2>Unterschied zwischen JWT und Cookies 🍪<a class="headerlink" href="#unterschied-zwischen-jwt-und-cookies" title="Link to this heading">¶</a></h2>
+<p>JWT und Cookies sind unterschiedliche Ansätze für Authentifizierung und Datenspeicherung:</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Merkmal</p></th>
+<th class="head"><p>JWT</p></th>
+<th class="head"><p>Cookies</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Speicherung</p></td>
+<td><p>Wird im Local Storage oder Session Storage gespeichert.</p></td>
+<td><p>Wird automatisch im Browser gespeichert und verwaltet.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sicherheit</p></td>
+<td><p>Kann bei XSS-Angriffen anfällig sein.</p></td>
+<td><p>Sicherer durch HTTP-only und Secure-Flags.</p></td>
+</tr>
+<tr class="row-even"><td><p>Verwendung</p></td>
+<td><p>Ideal für APIs und mobile Anwendungen.</p></td>
+<td><p>Ideal für klassische Webanwendungen.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Performance</p></td>
+<td><p>Stateless, weniger serverseitige Last.</p></td>
+<td><p>Benötigt serverseitige Sitzungsverwaltung.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="fazit">
+<h2>Fazit<a class="headerlink" href="#fazit" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Verwende JWTs für stateless, plattformübergreifende Anwendungen wie APIs und SPAs.</p></li>
+<li><p>Cookies sind einfacher für klassische Webanwendungen mit serverseitigen Sitzungen.</p></li>
+<li><p>Kombiniere JWTs und Cookies, indem du JWTs als HTTP-only-Cookies speicherst, um Sicherheit und Flexibilität zu maximieren.</p></li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -329,23 +397,15 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="info.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Info ℹ️</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="../fastapiUndUvicorn.html">
+          
+          <a class="prev-page" href="cookies.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Info zu FastAPI &amp; Uvicorn 🦄</div>
+                <div class="title">&lt;no title&gt;</div>
                 
               </div>
             </a>
@@ -367,8 +427,32 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">JWT (JSON Web Token) 💻</a><ul>
+<li><a class="reference internal" href="#was-ist-ein-jwt">Was ist ein JWT? 🤔</a></li>
+<li><a class="reference internal" href="#wie-wird-ein-jwt-erstellt">Wie wird ein JWT erstellt? 🛠️</a></li>
+<li><a class="reference internal" href="#wie-wird-ein-jwt-validiert">Wie wird ein JWT validiert? 🕵️</a></li>
+<li><a class="reference internal" href="#wann-sollte-man-jwt-verwenden">Wann sollte man JWT verwenden? 🤝</a></li>
+<li><a class="reference internal" href="#unterschied-zwischen-jwt-und-cookies">Unterschied zwischen JWT und Cookies 🍪</a></li>
+<li><a class="reference internal" href="#fazit">Fazit</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

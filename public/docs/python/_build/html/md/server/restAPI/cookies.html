@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" /><link rel="search" title="Suche" href="../../../search.html" /><link rel="next" title="Info ℹ️" href="info.html" /><link rel="prev" title="Info zu FastAPI &amp; Uvicorn 🦄" href="../fastapiUndUvicorn.html" />
+<link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" /><link rel="search" title="Suche" href="../../../search.html" /><link rel="next" title="JWT (JSON Web Token) 💻" href="jwt.html" /><link rel="prev" title="Middleware-Konfiguration" href="middleware.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Restserver API - py-docs 2.1.0 Dokumentation</title>
+        <title>Cookies erstellen und im Browser speichern 🍪 - py-docs 2.1.0 Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -179,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -231,11 +231,11 @@
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Server</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Server</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../fastapiUndUvicorn.html">Info zu FastAPI &amp; Uvicorn 🦄</a></li>
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Restserver API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Restserver API</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Restserver API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Restserver API</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="info.html">Info ℹ️</a></li>
 <li class="toctree-l3"><a class="reference internal" href="create.html">Erstellen des REST-API-Endpunkts / Servers 👩‍💻</a></li>
 <li class="toctree-l3"><a class="reference internal" href="middleware.html">Middleware-Konfiguration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cookies.html">Cookies erstellen und im Browser speichern 🍪</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Cookies erstellen und im Browser speichern 🍪</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jwt.html">JWT (JSON Web Token) 💻</a></li>
 </ul>
 </li>
@@ -261,7 +261,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/md/server/restAPI/index.rst.txt" title="View this page">
+  <a class="muted-link" href="../../../_sources/md/server/restAPI/cookies.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -275,53 +275,74 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="restserver-api">
-<h1>Restserver API<a class="headerlink" href="#restserver-api" title="Link to this heading">¶</a></h1>
-<p>In diesem Bereich geht es um die Erstellung eines REST-Services. Die Technologien, die dafür verwendet werden, sind FastAPI und Uvicorn.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="info.html">Info ℹ️</a></li>
-<li class="toctree-l1"><a class="reference internal" href="create.html">Erstellen des REST-API-Endpunkts / Servers 👩‍💻</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="create.html#voraussetzungen">Voraussetzungen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#schritt-1-projektstruktur-erstellen">Schritt 1: Projektstruktur erstellen 📂</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#schritt-2-fastapi-anwendung-einrichten">Schritt 2: FastAPI-Anwendung einrichten 🚀</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#schritt-3-endpunkte-fur-crud-operationen-erstellen">Schritt 3: Endpunkte für CRUD-Operationen erstellen 🛠️</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#schritt-4-server-starten">Schritt 4: Server starten 🚀</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#schritt-5-endpunkte-testen">Schritt 5: Endpunkte testen 🧪</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create.html#fazit">Fazit 🤓</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="middleware.html">Middleware-Konfiguration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="middleware.html#erstellen-und-konfigurieren-einer-middleware">Erstellen und Konfigurieren einer Middleware</a></li>
-<li class="toctree-l2"><a class="reference internal" href="middleware.html#eingebaute-middleware-verwenden">Eingebaute Middleware verwenden</a></li>
-<li class="toctree-l2"><a class="reference internal" href="middleware.html#fazit">Fazit</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="cookies.html">Cookies erstellen und im Browser speichern 🍪</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cookies.html#schritt-1-cookie-setzen">Schritt 1: Cookie setzen 🤳</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cookies.html#schritt-2-cookie-im-browser-uberprufen">Schritt 2: Cookie im Browser überprüfen 🕵️</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cookies.html#schritt-3-cookie-lesen">Schritt 3: Cookie lesen 📖</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cookies.html#fazit">Fazit</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="jwt.html">JWT (JSON Web Token) 💻</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="jwt.html#was-ist-ein-jwt">Was ist ein JWT? 🤔</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jwt.html#wie-wird-ein-jwt-erstellt">Wie wird ein JWT erstellt? 🛠️</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jwt.html#wie-wird-ein-jwt-validiert">Wie wird ein JWT validiert? 🕵️</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jwt.html#wann-sollte-man-jwt-verwenden">Wann sollte man JWT verwenden? 🤝</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jwt.html#unterschied-zwischen-jwt-und-cookies">Unterschied zwischen JWT und Cookies 🍪</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jwt.html#fazit">Fazit</a></li>
-</ul>
-</li>
-</ul>
+          <section id="cookies-erstellen-und-im-browser-speichern">
+<h1>Cookies erstellen und im Browser speichern 🍪<a class="headerlink" href="#cookies-erstellen-und-im-browser-speichern" title="Link to this heading">¶</a></h1>
+<p>Cookies können in FastAPI verwendet werden, um Daten zwischen dem Server und dem Browser zu speichern,
+z. B. für Sitzungen oder Benutzereinstellungen.</p>
+<section id="schritt-1-cookie-setzen">
+<h2>Schritt 1: Cookie setzen 🤳<a class="headerlink" href="#schritt-1-cookie-setzen" title="Link to this heading">¶</a></h2>
+<p>Verwende die FastAPI-Funktion <cite>Response.set_cookie</cite>, um einen Cookie zu setzen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Response</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/set-cookie&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">set_cookie</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="n">Response</span><span class="p">):</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s2">&quot;user_id&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;12345&quot;</span><span class="p">,</span> <span class="n">httponly</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_age</span><span class="o">=</span><span class="mi">3600</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Cookie wurde gesetzt!&quot;</span><span class="p">}</span>
+</pre></div>
 </div>
+<ul class="simple">
+<li><p><strong>key</strong>: Der Name des Cookies (z. B. <cite>user_id</cite>).</p></li>
+<li><p><strong>value</strong>: Der Wert des Cookies (z. B. <cite>12345</cite>).</p></li>
+<li><p><strong>httponly</strong>: Verhindert Zugriff auf den Cookie durch JavaScript (empfohlen für Sicherheit).</p></li>
+<li><p><strong>max_age</strong>: Gültigkeitsdauer des Cookies in Sekunden (z. B. 3600 für eine Stunde).</p></li>
+</ul>
+</section>
+<section id="schritt-2-cookie-im-browser-uberprufen">
+<h2>Schritt 2: Cookie im Browser überprüfen 🕵️<a class="headerlink" href="#schritt-2-cookie-im-browser-uberprufen" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Starte den FastAPI-Server:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uvicorn<span class="w"> </span>main:app<span class="w"> </span>--reload
+</pre></div>
+</div>
+</li>
+<li><p>Rufe den Endpunkt im Browser oder mit einem Tool wie Postman auf:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>http://127.0.0.1:8000/set-cookie
+</pre></div>
+</div>
+</li>
+</ol>
+<p>3. Öffne die Entwicklertools deines Browsers (F12) und gehe zum Tab <strong>Application</strong> &gt; <strong>Storage</strong> &gt; <strong>Cookies</strong>,
+um den gesetzten Cookie zu sehen.</p>
+</section>
+<section id="schritt-3-cookie-lesen">
+<h2>Schritt 3: Cookie lesen 📖<a class="headerlink" href="#schritt-3-cookie-lesen" title="Link to this heading">¶</a></h2>
+<p>Verwende <cite>Request.cookies</cite>, um Cookies im Servercode auszulesen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Request</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/get-cookie&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_cookie</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user_id&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">user_id</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="n">user_id</span><span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Cookie nicht gefunden&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="fazit">
+<h2>Fazit<a class="headerlink" href="#fazit" title="Link to this heading">¶</a></h2>
+<p>Cookies sind eine einfache Möglichkeit, Daten sicher zwischen Server und Client auszutauschen.
+Mit FastAPI kannst du sie leicht setzen, auslesen und verwalten.</p>
+</section>
 </section>
 
         </article>
@@ -329,23 +350,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="info.html">
+          <a class="next-page" href="jwt.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Info ℹ️</div>
+                <div class="title">JWT (JSON Web Token) 💻</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../fastapiUndUvicorn.html">
+          <a class="prev-page" href="middleware.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Info zu FastAPI &amp; Uvicorn 🦄</div>
+                <div class="title">Middleware-Konfiguration</div>
                 
               </div>
             </a>
@@ -367,8 +388,30 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Cookies erstellen und im Browser speichern 🍪</a><ul>
+<li><a class="reference internal" href="#schritt-1-cookie-setzen">Schritt 1: Cookie setzen 🤳</a></li>
+<li><a class="reference internal" href="#schritt-2-cookie-im-browser-uberprufen">Schritt 2: Cookie im Browser überprüfen 🕵️</a></li>
+<li><a class="reference internal" href="#schritt-3-cookie-lesen">Schritt 3: Cookie lesen 📖</a></li>
+<li><a class="reference internal" href="#fazit">Fazit</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
