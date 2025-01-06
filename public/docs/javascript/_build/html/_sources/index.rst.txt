@@ -12,5 +12,7 @@ js docu documentation
    :caption: Contents:
 
    md/grundlagen/toctree
-   md/erweiterte/navtest
+   md/erweiterte/index
+   md/server/index
+   md/database/index
 

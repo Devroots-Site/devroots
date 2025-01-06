@@ -17,7 +17,6 @@ Hier sind einige Beispiele für die Verwendung von erweiterte Verwendung von Jav
     module
     popups
     rechnen
-    rechnen2.rst
     regex
     restAndSpread
     timeout
