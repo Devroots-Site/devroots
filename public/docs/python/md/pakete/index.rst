@@ -9,5 +9,6 @@ Pakete 📦
    erstellen_und_einbinden
    math
    os
+   pydantic
    regex
    sys
