@@ -9,7 +9,7 @@
 from datetime import datetime
 
 project = 'itpages'
-copyright = f'{datetime.year}, Bichler Bastian'
+copyright = f'{datetime.now().year}, Bichler Bastian'
 author = 'Bichler Bastian'
 release = '0.0.0'
 
