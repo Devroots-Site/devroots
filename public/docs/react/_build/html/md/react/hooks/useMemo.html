@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" /><link rel="search" title="Suche" href="../../../search.html" /><link rel="next" title="useWatch &amp; watch" href="useWatch.html" /><link rel="prev" title="React Hook Form ✍️" href="index.html" />
+<link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" /><link rel="search" title="Suche" href="../../../search.html" />
 
     <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
-        <title>Einführung &amp; Installation 🤖 - Vite React + Typescript</title>
+        <title>UseMemo - Vite React + Typescript</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -200,26 +200,26 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../react/react.index.html">React</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of React</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../react/classVsFunctComponents.html">Class 🆚 Function Components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../react/components.html">Komponenten Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../react/index.tsx.html"><cite>index.tsx</cite> Datei 📝</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../react/hooks/index.html">Hooks 🪝</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Hooks 🪝</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../react/hooks/customHook.html">Custom Hooks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../react/hooks/useContext.html">React Kontext-API</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../react/hooks/useEffect.html"><cite>useEffect</cite></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../react/hooks/useParams.html"><cite>useParams</cite></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../react/hooks/useReducer.html">useReducer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../react/hooks/useRef.html">UseRef</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../react/hooks/useState.html"><cite>useState</cite></a></li>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../react.index.html">React</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of React</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../classVsFunctComponents.html">Class 🆚 Function Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components.html">Komponenten Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.tsx.html"><cite>index.tsx</cite> Datei 📝</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index.html">Hooks 🪝</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Hooks 🪝</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="customHook.html">Custom Hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="useContext.html">React Kontext-API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="useEffect.html"><cite>useEffect</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="useParams.html"><cite>useParams</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="useReducer.html">useReducer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="useRef.html">UseRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="useState.html"><cite>useState</cite></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../react/lazyloading.html">Lazy Loading  🚀</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../react/liftup.html">Lift Up 🛗</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../react/modals.html">Modals  📊</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../react/produktivServer.html">Produktiv Server 🔨</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../react/routes.html">Routing 🧭</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lazyloading.html">Lazy Loading  🚀</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../liftup.html">Lift Up 🛗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modals.html">Modals  📊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../produktivServer.html">Produktiv Server 🔨</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../routes.html">Routing 🧭</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../mui/index.html">Material-UI (MUI) 🎨</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Material-UI (MUI) 🎨</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -228,18 +228,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../../mui/groesenUndAnpassung.html">Größen und Passung ↕️</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Bibliothek 📕</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Bibliothek 📕</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../zod.html">Zod in React 👾</a></li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">React Hook Form ✍️</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of React Hook Form ✍️</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Einführung &amp; Installation  🤖</a></li>
-<li class="toctree-l3"><a class="reference internal" href="useWatch.html">useWatch &amp; watch</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../bibliothek/index.html">Bibliothek 📕</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Bibliothek 📕</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../bibliothek/zod.html">Zod in React 👾</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../bibliothek/reactHookForm/index.html">React Hook Form ✍️</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of React Hook Form ✍️</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../bibliothek/reactHookForm/indroduction.html">Einführung &amp; Installation  🤖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bibliothek/reactHookForm/useWatch.html">useWatch &amp; watch</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../reactQuery/index.html">React Query</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of React Query</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../reactQuery/gen.html">React Query 🕵🏻‍♂️</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../bibliothek/reactQuery/index.html">React Query</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of React Query</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../bibliothek/reactQuery/gen.html">React Query 🕵🏻‍♂️</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../sentry/index.html">Sentry-Integration mit React</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bibliothek/sentry/index.html">Sentry-Integration mit React</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../typescript/index.html">Typescript 🦖</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Typescript 🦖</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -277,7 +277,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/md/bibliothek/reactHookForm/indroduction.rst.txt" title="View this page">
+  <a class="muted-link" href="../../../_sources/md/react/hooks/useMemo.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -297,49 +297,52 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="einfuhrung-installation">
-<h1>Einführung &amp; Installation  🤖<a class="headerlink" href="#einfuhrung-installation" title="Link to this heading">¶</a></h1>
-<p><cite>react-hook-form</cite> ist eine leichtgewichtige Bibliothek zur Verwaltung von Formularen in React. Sie ermöglicht die effiziente Handhabung von Formularzuständen, Validierung und Fehlerbehandlung, indem unnötige Neurenderings vermieden werden. Durch die Verwendung von React Hooks bietet sie eine einfache und performante Möglichkeit, Formulare in React-Anwendungen zu integrieren.</p>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
-<p>Du kannst <cite>react-hook-form</cite> mit npm oder Yarn installieren:</p>
-<section id="installation-mit-npm">
-<h3>Installation mit npm<a class="headerlink" href="#installation-mit-npm" title="Link to this heading">¶</a></h3>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>install<span class="w"> </span>react-hook-form
-</pre></div>
-</div>
-</section>
-<section id="installation-mit-yarn">
-<h3>Installation mit Yarn<a class="headerlink" href="#installation-mit-yarn" title="Link to this heading">¶</a></h3>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>yarn<span class="w"> </span>add<span class="w"> </span>react-hook-form
-</pre></div>
-</div>
-</section>
-</section>
-<section id="verwendung">
-<h2>Verwendung<a class="headerlink" href="#verwendung" title="Link to this heading">¶</a></h2>
-<p>Nach der Installation kannst du <cite>react-hook-form</cite> in deinem Projekt verwenden, um Formularfelder zu registrieren, die Eingaben zu überwachen und Fehler zu verwalten:</p>
-<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useForm</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-hook-form&#39;</span><span class="p">;</span>
+          <section id="usememo">
+<h1>UseMemo<a class="headerlink" href="#usememo" title="Link to this heading">¶</a></h1>
+<p>useMemo wird in React verwendet, um Daten zu speichern, die nicht bei jedem Laden erneut berechnet werden müssen. Dies hilft, intensive Rechenoperationen zu vermeiden und die Leistung der Anwendung zu optimieren.</p>
+<p>Achtung: Ein übermäßiger Einsatz von useMemo kann jedoch die Performance negativ beeinflussen. Es sollte nur verwendet werden, wenn es tatsächlich notwendig ist.</p>
+<p>Zum Beispiel, wenn umfangreiche Berechnungen wie bei 1.000 Datensätzen durchgeführt werden müssen.</p>
+<p>Hauptvorteile:</p>
+<ul class="simple">
+<li><p>Vermeidung unnötiger Rechenleistung.</p></li>
+<li><p>Optimierung der Performance.</p></li>
+<li><p>Speicher sparender Umgang mit komplexen Daten.</p></li>
+</ul>
+<section id="beispielverwendung">
+<h2>Beispielverwendung<a class="headerlink" href="#beispielverwendung" title="Link to this heading">¶</a></h2>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useMemo</span><span class="p">,</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
 
-<span class="kd">function</span><span class="w"> </span><span class="nx">MyForm</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">register</span><span class="p">,</span><span class="w"> </span><span class="nx">handleSubmit</span><span class="p">,</span><span class="w"> </span><span class="nx">formState</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">errors</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useForm</span><span class="p">();</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">ExpensiveCalculationComponent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">count</span><span class="p">,</span><span class="w"> </span><span class="nx">setCount</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">otherState</span><span class="p">,</span><span class="w"> </span><span class="nx">setOtherState</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
 
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">onSubmit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="c1">// Teure Berechnung nur bei Änderung von &#39;count&#39;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">expensiveResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useMemo</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Teure Berechnung wird ausgeführt...&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Beispiel: Quadrat der Zahl</span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">[</span><span class="nx">count</span><span class="p">]);</span>
 
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="p">&lt;</span><span class="nt">form</span><span class="w"> </span><span class="na">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">handleSubmit</span><span class="p">(</span><span class="nx">onSubmit</span><span class="p">)}&gt;</span>
-<span class="w">        </span><span class="p">&lt;</span><span class="nt">input</span><span class="w"> </span><span class="p">{</span><span class="na">...register</span><span class="err">(&quot;</span><span class="na">firstName</span><span class="err">&quot;,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="na">required</span><span class="err">:</span><span class="w"> </span><span class="na">true</span><span class="w"> </span><span class="p">}</span><span class="err">)</span><span class="p">}</span><span class="w"> </span><span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Vorname&quot;</span><span class="w"> </span><span class="p">/&gt;</span>
-<span class="w">        </span><span class="p">{</span><span class="nx">errors</span><span class="p">.</span><span class="nx">firstName</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">Vorname</span><span class="w"> </span><span class="nx">ist</span><span class="w"> </span><span class="nx">erforderlich</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;}</span>
-
-<span class="w">        </span><span class="p">&lt;</span><span class="nt">input</span><span class="w"> </span><span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="w"> </span><span class="p">/&gt;</span>
-<span class="w">        </span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-<span class="w">        </span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Ergebnis</span><span class="w"> </span><span class="nx">der</span><span class="w"> </span><span class="nx">teuren</span><span class="w"> </span><span class="nx">Berechnung</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">expensiveResult</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)}</span><span class="o">&gt;</span><span class="nx">Count</span><span class="w"> </span><span class="nx">erhöhen</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setOtherState</span><span class="p">(</span><span class="o">!</span><span class="nx">otherState</span><span class="p">)}</span><span class="o">&gt;</span><span class="nx">Anderen</span><span class="w"> </span><span class="nx">State</span><span class="w"> </span><span class="nx">ändern</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
+</section>
+<section id="wichtige-hinweise">
+<h2>Wichtige Hinweise<a class="headerlink" href="#wichtige-hinweise" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Verwendung nur bei Bedarf:
+Verwende useMemo nur, wenn du sicher bist, dass eine Berechnung teuer genug ist, um den Aufwand zu rechtfertigen.</p></li>
+<li><p>Abhängigkeiten:
+Die Abhängigkeiten im zweiten Argument von useMemo bestimmen, wann die gespeicherten Werte neu berechnet werden. Bei falscher Definition kann es zu unerwartetem Verhalten kommen.</p></li>
+<li><p>Performance-Overhead:</p></li>
+</ul>
+<p>Der Einsatz von useMemo selbst bringt einen gewissen Speicher- und Verwaltungsaufwand mit sich. Verwende es daher sparsam und nur in performancekritischen Situationen.</p>
 </section>
 </section>
 
@@ -348,26 +351,8 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="useWatch.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">useWatch &amp; watch</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="index.html">
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">React Hook Form ✍️</div>
-                
-              </div>
-            </a>
+          
+          
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -398,13 +383,9 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Einführung &amp; Installation  🤖</a><ul>
-<li><a class="reference internal" href="#installation">Installation</a><ul>
-<li><a class="reference internal" href="#installation-mit-npm">Installation mit npm</a></li>
-<li><a class="reference internal" href="#installation-mit-yarn">Installation mit Yarn</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#verwendung">Verwendung</a></li>
+<li><a class="reference internal" href="#">UseMemo</a><ul>
+<li><a class="reference internal" href="#beispielverwendung">Beispielverwendung</a></li>
+<li><a class="reference internal" href="#wichtige-hinweise">Wichtige Hinweise</a></li>
 </ul>
 </li>
 </ul>

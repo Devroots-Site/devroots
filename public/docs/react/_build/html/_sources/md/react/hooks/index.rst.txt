@@ -8,6 +8,7 @@ Hooks 🪝
    customHook.rst
    useContext.rst
    useEffect.rst
+   useMemo.rst
    useParams.rst
    useReducer.rst
    useRef.rst

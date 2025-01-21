@@ -8,12 +8,12 @@
  * :license: BSD, see LICENSE for details.
  *
  */
-'use strict';
+"use strict";
 
 /**
  * Simple result scoring code.
  */
-if (typeof Scorer === 'undefined') {
+if (typeof Scorer === "undefined") {
   var Scorer = {
     // Implement the following function to further tweak the score for each result
     // The function takes a result array [docname, title, anchor, descr, score, filename]
@@ -55,7 +55,7 @@ const _removeChildren = (element) => {
  * See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#escaping
  */
 const _escapeRegExp = (string) =>
-  string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+  string.replace(/[.*+\-?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
 
 const _displayItem = (item, searchTerms, highlightTerms) => {
   const docBuilder = DOCUMENTATION_OPTIONS.BUILDER;
@@ -66,15 +66,15 @@ const _displayItem = (item, searchTerms, highlightTerms) => {
 
   const [docName, title, anchor, descr, score, _filename] = item;
 
-  let listItem = document.createElement('li');
+  let listItem = document.createElement("li");
   let requestUrl;
   let linkUrl;
-  if (docBuilder === 'dirhtml') {
+  if (docBuilder === "dirhtml") {
     // dirhtml builder
-    let dirname = docName + '/';
+    let dirname = docName + "/";
     if (dirname.match(/\/index\/$/))
       dirname = dirname.substring(0, dirname.length - 6);
-    else if (dirname === 'index/') dirname = '';
+    else if (dirname === "index/") dirname = "";
     requestUrl = contentRoot + dirname;
     linkUrl = requestUrl;
   } else {
@@ -82,20 +82,18 @@ const _displayItem = (item, searchTerms, highlightTerms) => {
     requestUrl = contentRoot + docName + docFileSuffix;
     linkUrl = docName + docLinkSuffix;
   }
-  let linkEl = listItem.appendChild(document.createElement('a'));
+  let linkEl = listItem.appendChild(document.createElement("a"));
   linkEl.href = linkUrl + anchor;
   linkEl.dataset.score = score;
   linkEl.innerHTML = title;
   if (descr) {
-    listItem.appendChild(document.createElement('span')).innerHTML =
-      ' (' + descr + ')';
+    listItem.appendChild(document.createElement("span")).innerHTML =
+      " (" + descr + ")";
     // highlight search terms in the description
-    if (SPHINX_HIGHLIGHT_ENABLED)
-      // set in sphinx_highlight.js
-      highlightTerms.forEach((term) =>
-        _highlightText(listItem, term, 'highlighted')
-      );
-  } else if (showSearchSummary)
+    if (SPHINX_HIGHLIGHT_ENABLED)  // set in sphinx_highlight.js
+      highlightTerms.forEach((term) => _highlightText(listItem, term, "highlighted"));
+  }
+  else if (showSearchSummary)
     fetch(requestUrl)
       .then((responseData) => responseData.text())
       .then((data) => {
@@ -104,31 +102,28 @@ const _displayItem = (item, searchTerms, highlightTerms) => {
             Search.makeSearchSummary(data, searchTerms, anchor)
           );
         // highlight search terms in the summary
-        if (SPHINX_HIGHLIGHT_ENABLED)
-          // set in sphinx_highlight.js
-          highlightTerms.forEach((term) =>
-            _highlightText(listItem, term, 'highlighted')
-          );
+        if (SPHINX_HIGHLIGHT_ENABLED)  // set in sphinx_highlight.js
+          highlightTerms.forEach((term) => _highlightText(listItem, term, "highlighted"));
       });
   Search.output.appendChild(listItem);
 };
 const _finishSearch = (resultCount) => {
   Search.stopPulse();
-  Search.title.innerText = _('Search Results');
+  Search.title.innerText = _("Search Results");
   if (!resultCount)
     Search.status.innerText = Documentation.gettext(
       "Your search did not match any documents. Please make sure that all words are spelled correctly and that you've selected enough categories."
     );
   else
     Search.status.innerText = _(
-      'Search finished, found ${resultCount} page(s) matching the search query.'
+      "Search finished, found ${resultCount} page(s) matching the search query."
     ).replace('${resultCount}', resultCount);
 };
 const _displayNextItem = (
   results,
   resultCount,
   searchTerms,
-  highlightTerms
+  highlightTerms,
 ) => {
   // results left, load the summary and display it
   // this is intended to be dynamic (don't sub resultsCount)
@@ -167,11 +162,10 @@ const _orderResultsByScoreThenName = (a, b) => {
  * that are not Unicode letters, numbers, underscores, or emoji characters.
  * This is the same as ``\W+`` in Python, preserving the surrogate pair area.
  */
-if (typeof splitQuery === 'undefined') {
-  var splitQuery = (query) =>
-    query
+if (typeof splitQuery === "undefined") {
+  var splitQuery = (query) => query
       .split(/[^\p{Letter}\p{Number}_\p{Emoji_Presentation}]+/gu)
-      .filter((term) => term); // remove remaining empty strings
+      .filter(term => term)  // remove remaining empty strings
 }
 
 /**
@@ -183,19 +177,12 @@ const Search = {
   _pulse_status: -1,
 
   htmlToText: (htmlString, anchor) => {
-    const htmlElement = new DOMParser().parseFromString(
-      htmlString,
-      'text/html'
-    );
-    for (const removalQuery of ['.headerlink', 'script', 'style']) {
-      htmlElement.querySelectorAll(removalQuery).forEach((el) => {
-        el.remove();
-      });
+    const htmlElement = new DOMParser().parseFromString(htmlString, 'text/html');
+    for (const removalQuery of [".headerlink", "script", "style"]) {
+      htmlElement.querySelectorAll(removalQuery).forEach((el) => { el.remove() });
     }
     if (anchor) {
-      const anchorContent = htmlElement.querySelector(
-        `[role="main"] ${anchor}`
-      );
+      const anchorContent = htmlElement.querySelector(`[role="main"] ${anchor}`);
       if (anchorContent) return anchorContent.textContent;
 
       console.warn(
@@ -210,11 +197,11 @@ const Search = {
     console.warn(
       "Content block not found. Sphinx search tries to obtain it via DOM query '[role=main]'. Check your theme or template."
     );
-    return '';
+    return "";
   },
 
   init: () => {
-    const query = new URLSearchParams(window.location.search).get('q');
+    const query = new URLSearchParams(window.location.search).get("q");
     document
       .querySelectorAll('input[name="q"]')
       .forEach((el) => (el.value = query));
@@ -222,7 +209,7 @@ const Search = {
   },
 
   loadIndex: (url) =>
-    (document.body.appendChild(document.createElement('script')).src = url),
+    (document.body.appendChild(document.createElement("script")).src = url),
 
   setIndex: (index) => {
     Search._index = index;
@@ -244,7 +231,7 @@ const Search = {
 
     const pulse = () => {
       Search._pulse_status = (Search._pulse_status + 1) % 4;
-      Search.dots.innerText = '.'.repeat(Search._pulse_status);
+      Search.dots.innerText = ".".repeat(Search._pulse_status);
       if (Search._pulse_status >= 0) window.setTimeout(pulse, 500);
     };
     pulse();
@@ -255,24 +242,24 @@ const Search = {
    */
   performSearch: (query) => {
     // create the required interface elements
-    const searchText = document.createElement('h2');
-    searchText.textContent = _('Searching');
-    const searchSummary = document.createElement('p');
-    searchSummary.classList.add('search-summary');
-    searchSummary.innerText = '';
-    const searchList = document.createElement('ul');
-    searchList.classList.add('search');
+    const searchText = document.createElement("h2");
+    searchText.textContent = _("Searching");
+    const searchSummary = document.createElement("p");
+    searchSummary.classList.add("search-summary");
+    searchSummary.innerText = "";
+    const searchList = document.createElement("ul");
+    searchList.classList.add("search");
 
-    const out = document.getElementById('search-results');
+    const out = document.getElementById("search-results");
     Search.title = out.appendChild(searchText);
-    Search.dots = Search.title.appendChild(document.createElement('span'));
+    Search.dots = Search.title.appendChild(document.createElement("span"));
     Search.status = out.appendChild(searchSummary);
     Search.output = out.appendChild(searchList);
 
-    const searchProgress = document.getElementById('search-progress');
+    const searchProgress = document.getElementById("search-progress");
     // Some themes don't use the search progress node
     if (searchProgress) {
-      searchProgress.innerText = _('Preparing search...');
+      searchProgress.innerText = _("Preparing search...");
     }
     Search.startPulse();
 
@@ -293,25 +280,24 @@ const Search = {
 
       // maybe skip this "word"
       // stopwords array is from language_data.js
-      if (stopwords.indexOf(queryTermLower) !== -1 || queryTerm.match(/^\d+$/))
+      if (
+        stopwords.indexOf(queryTermLower) !== -1 ||
+        queryTerm.match(/^\d+$/)
+      )
         return;
 
       // stem the word
       let word = stemmer.stemWord(queryTermLower);
       // select the correct list
-      if (word[0] === '-') excludedTerms.add(word.substr(1));
+      if (word[0] === "-") excludedTerms.add(word.substr(1));
       else {
         searchTerms.add(word);
         highlightTerms.add(queryTermLower);
       }
     });
 
-    if (SPHINX_HIGHLIGHT_ENABLED) {
-      // set in sphinx_highlight.js
-      localStorage.setItem(
-        'sphinx_highlight_terms',
-        [...highlightTerms].join(' ')
-      );
+    if (SPHINX_HIGHLIGHT_ENABLED) {  // set in sphinx_highlight.js
+      localStorage.setItem("sphinx_highlight_terms", [...highlightTerms].join(" "))
     }
 
     // console.debug("SEARCH: searching for:");
@@ -324,13 +310,7 @@ const Search = {
   /**
    * execute search (requires search index to be loaded)
    */
-  _performSearch: (
-    query,
-    searchTerms,
-    excludedTerms,
-    highlightTerms,
-    objectTerms
-  ) => {
+  _performSearch: (query, searchTerms, excludedTerms, highlightTerms, objectTerms) => {
     const filenames = Search._index.filenames;
     const docNames = Search._index.docnames;
     const titles = Search._index.titles;
@@ -342,23 +322,18 @@ const Search = {
     const normalResults = [];
     const nonMainIndexResults = [];
 
-    _removeChildren(document.getElementById('search-progress'));
+    _removeChildren(document.getElementById("search-progress"));
 
     const queryLower = query.toLowerCase().trim();
     for (const [title, foundTitles] of Object.entries(allTitles)) {
-      if (
-        title.toLowerCase().trim().includes(queryLower) &&
-        queryLower.length >= title.length / 2
-      ) {
+      if (title.toLowerCase().trim().includes(queryLower) && (queryLower.length >= title.length/2)) {
         for (const [file, id] of foundTitles) {
-          const score = Math.round(
-            (Scorer.title * queryLower.length) / title.length
-          );
-          const boost = titles[file] === title ? 1 : 0; // add a boost for document titles
+          const score = Math.round(Scorer.title * queryLower.length / title.length);
+          const boost = titles[file] === title ? 1 : 0;  // add a boost for document titles
           normalResults.push([
             docNames[file],
             titles[file] !== title ? `${titles[file]} > ${title}` : title,
-            id !== null ? '#' + id : '',
+            id !== null ? "#" + id : "",
             null,
             score + boost,
             filenames[file],
@@ -369,13 +344,13 @@ const Search = {
 
     // search for explicit entries in index directives
     for (const [entry, foundEntries] of Object.entries(indexEntries)) {
-      if (entry.includes(queryLower) && queryLower.length >= entry.length / 2) {
+      if (entry.includes(queryLower) && (queryLower.length >= entry.length/2)) {
         for (const [file, id, isMain] of foundEntries) {
-          const score = Math.round((100 * queryLower.length) / entry.length);
+          const score = Math.round(100 * queryLower.length / entry.length);
           const result = [
             docNames[file],
             titles[file],
-            id ? '#' + id : '',
+            id ? "#" + id : "",
             null,
             score,
             filenames[file],
@@ -395,9 +370,7 @@ const Search = {
     );
 
     // lookup as search terms in fulltext
-    normalResults.push(
-      ...Search.performTermsSearch(searchTerms, excludedTerms)
-    );
+    normalResults.push(...Search.performTermsSearch(searchTerms, excludedTerms));
 
     // let the scorer override scores with a custom scoring function
     if (Scorer.score) {
@@ -418,11 +391,7 @@ const Search = {
     // note the reversing of results, so that in the case of duplicates, the highest-scoring entry is kept
     let seen = new Set();
     results = results.reverse().reduce((acc, result) => {
-      let resultStr = result
-        .slice(0, 4)
-        .concat([result[5]])
-        .map((v) => String(v))
-        .join(',');
+      let resultStr = result.slice(0, 4).concat([result[5]]).map(v => String(v)).join(',');
       if (!seen.has(resultStr)) {
         acc.push(result);
         seen.add(resultStr);
@@ -434,20 +403,8 @@ const Search = {
   },
 
   query: (query) => {
-    const [
-      searchQuery,
-      searchTerms,
-      excludedTerms,
-      highlightTerms,
-      objectTerms,
-    ] = Search._parseQuery(query);
-    const results = Search._performSearch(
-      searchQuery,
-      searchTerms,
-      excludedTerms,
-      highlightTerms,
-      objectTerms
-    );
+    const [searchQuery, searchTerms, excludedTerms, highlightTerms, objectTerms] = Search._parseQuery(query);
+    const results = Search._performSearch(searchQuery, searchTerms, excludedTerms, highlightTerms, objectTerms);
 
     // for debugging
     //Search.lastresults = results.slice();  // a copy
@@ -470,13 +427,13 @@ const Search = {
     const results = [];
 
     const objectSearchCallback = (prefix, match) => {
-      const name = match[4];
-      const fullname = (prefix ? prefix + '.' : '') + name;
+      const name = match[4]
+      const fullname = (prefix ? prefix + "." : "") + name;
       const fullnameLower = fullname.toLowerCase();
       if (fullnameLower.indexOf(object) < 0) return;
 
       let score = 0;
-      const parts = fullnameLower.split('.');
+      const parts = fullnameLower.split(".");
 
       // check for different match types: exact matches of full name or
       // "last name" (i.e. last dotted part)
@@ -501,10 +458,10 @@ const Search = {
       }
 
       let anchor = match[3];
-      if (anchor === '') anchor = fullname;
-      else if (anchor === '-') anchor = objNames[match[1]][1] + '-' + fullname;
+      if (anchor === "") anchor = fullname;
+      else if (anchor === "-") anchor = objNames[match[1]][1] + "-" + fullname;
 
-      const descr = objName + _(', in ') + title;
+      const descr = objName + _(", in ") + title;
 
       // add custom score for some objects according to scorer
       if (Scorer.objPrio.hasOwnProperty(match[2]))
@@ -514,14 +471,16 @@ const Search = {
       results.push([
         docNames[match[0]],
         fullname,
-        '#' + anchor,
+        "#" + anchor,
         descr,
         score,
         filenames[match[0]],
       ]);
     };
     Object.keys(objects).forEach((prefix) =>
-      objects[prefix].forEach((array) => objectSearchCallback(prefix, array))
+      objects[prefix].forEach((array) =>
+        objectSearchCallback(prefix, array)
+      )
     );
     return results;
   },
@@ -585,8 +544,7 @@ const Search = {
       // create the mapping
       files.forEach((file) => {
         if (!fileMap.has(file)) fileMap.set(file, [word]);
-        else if (fileMap.get(file).indexOf(word) === -1)
-          fileMap.get(file).push(word);
+        else if (fileMap.get(file).indexOf(word) === -1) fileMap.get(file).push(word);
       });
     });
 
@@ -623,7 +581,7 @@ const Search = {
       results.push([
         docNames[file],
         titles[file],
-        '',
+        "",
         null,
         score,
         filenames[file],
@@ -639,7 +597,7 @@ const Search = {
    */
   makeSearchSummary: (htmlText, keywords, anchor) => {
     const text = Search.htmlToText(htmlText, anchor);
-    if (text === '') return null;
+    if (text === "") return null;
 
     const textLower = text.toLowerCase();
     const actualStartPosition = [...keywords]
@@ -648,13 +606,12 @@ const Search = {
       .slice(-1)[0];
     const startWithContext = Math.max(actualStartPosition - 120, 0);
 
-    const top = startWithContext === 0 ? '' : '...';
-    const tail = startWithContext + 240 < text.length ? '...' : '';
+    const top = startWithContext === 0 ? "" : "...";
+    const tail = startWithContext + 240 < text.length ? "..." : "";
 
-    let summary = document.createElement('p');
-    summary.classList.add('context');
-    summary.textContent =
-      top + text.substr(startWithContext, 240).trim() + tail;
+    let summary = document.createElement("p");
+    summary.classList.add("context");
+    summary.textContent = top + text.substr(startWithContext, 240).trim() + tail;
 
     return summary;
   },
