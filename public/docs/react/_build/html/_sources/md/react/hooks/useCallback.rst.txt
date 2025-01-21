@@ -1,6 +1,6 @@
 .. _useCallback:
 
-useCallback 
+useCallback in React
 ====================
 
 Einführung

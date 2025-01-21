@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" /><link rel="search" title="Suche" href="../../../search.html" /><link rel="next" title="Custom Hooks" href="customHook.html" /><link rel="prev" title="index.tsx Datei 📝" href="../index.tsx.html" />
+<link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" /><link rel="search" title="Suche" href="../../../search.html" />
 
     <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
-        <title>Hooks 🪝 - Vite React + Typescript</title>
+        <title>useCallback in React - Vite React + Typescript</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -179,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -200,14 +200,13 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../react.index.html">React</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of React</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../react.index.html">React</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of React</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../classVsFunctComponents.html">Class 🆚 Function Components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../components.html">Komponenten Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.tsx.html"><cite>index.tsx</cite> Datei 📝</a></li>
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Hooks 🪝</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Hooks 🪝</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index.html">Hooks 🪝</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Hooks 🪝</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="customHook.html">Custom Hooks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="useCallback.html">useCallback in React</a></li>
 <li class="toctree-l3"><a class="reference internal" href="useContext.html">React Kontext-API</a></li>
 <li class="toctree-l3"><a class="reference internal" href="useEffect.html"><cite>useEffect</cite></a></li>
 <li class="toctree-l3"><a class="reference internal" href="useMemo.html">UseMemo</a></li>
@@ -279,7 +278,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/md/react/hooks/index.rst.txt" title="View this page">
+  <a class="muted-link" href="../../../_sources/md/react/hooks/useCallback.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -293,83 +292,85 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="hooks">
-<h1>Hooks 🪝<a class="headerlink" href="#hooks" title="Link to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="customHook.html">Custom Hooks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="customHook.html#einleitung">Einleitung 🪜</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customHook.html#was-sind-custom-hooks">Was sind Custom Hooks? 🪝</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customHook.html#wann-sind-custom-hooks-sinnvoll">Wann sind Custom Hooks sinnvoll? ⌚</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customHook.html#vorteile-von-custom-hooks">Vorteile von Custom Hooks 🎁</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customHook.html#nachteile-von-custom-hooks">Nachteile von Custom Hooks 💣</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customHook.html#wie-erstellt-man-custom-hooks">Wie erstellt man Custom Hooks? 🔨</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customHook.html#wie-exportiere-ich-custom-hooks">Wie exportiere ich Custom Hooks? 🧪</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customHook.html#erweiterung-custom-hook-fur-eine-berechnung">Erweiterung: Custom Hook für eine Berechnung ⏩</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customHook.html#fazit">Fazit 🤓</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="useCallback.html">useCallback in React</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="useCallback.html#einfuhrung">Einführung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useCallback.html#beispielverwendung">Beispielverwendung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useCallback.html#wichtige-hinweise">Wichtige Hinweise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useCallback.html#weitere-themen">Weitere Themen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useCallback.html#fazit">Fazit</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="useContext.html">React Kontext-API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="useContext.html#einfuhrung-in-createcontext">Einführung in <cite>createContext</cite></a></li>
-<li class="toctree-l2"><a class="reference internal" href="useContext.html#verwendung-von-usecontext">Verwendung von <cite>useContext</cite></a></li>
-<li class="toctree-l2"><a class="reference internal" href="useContext.html#vorteile-der-kontext-api">Vorteile der Kontext-API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useContext.html#best-practices">Best Practices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useContext.html#zusammenfassung">Zusammenfassung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useContext.html#weiteres-beispiel">Weiteres Beispiel</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="useEffect.html"><cite>useEffect</cite></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="useEffect.html#uberblick">Überblick</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="useMemo.html">UseMemo</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="useMemo.html#beispielverwendung">Beispielverwendung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useMemo.html#wichtige-hinweise">Wichtige Hinweise</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="useParams.html"><cite>useParams</cite></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="useParams.html#einfuhrung">Einführung 🔗</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useParams.html#voraussetzungen-fur-useparams">Voraussetzungen für <cite>useParams</cite> 💡</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useParams.html#zugreifen-auf-url-parameter-mit-useparams">Zugreifen auf URL-Parameter mit <cite>useParams</cite> ♾️</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useParams.html#voraussetzung-fur-den-zugriff-auf-parameter">Voraussetzung für den Zugriff auf Parameter 🧪</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useParams.html#typische-anwendungsfalle-fur-useparams">Typische Anwendungsfälle für <cite>useParams</cite> 💫</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useParams.html#fehlerbehandlung-mit-useparams">Fehlerbehandlung mit <cite>useParams</cite> 👹</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useParams.html#zusammenfassung">Zusammenfassung 📑</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="useReducer.html">useReducer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="useRef.html">UseRef</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="useRef.html#wann-wird-useref-verwendet">Wann wird <cite>useRef</cite> verwendet?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useRef.html#was-macht-useref">Was macht <cite>useRef</cite>?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useRef.html#beispiel-fur-dom-referenz">Beispiel für DOM-Referenz</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useRef.html#manipulieren-von-jsx-elementen">Manipulieren von JSX-Elementen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useRef.html#wann-current-verwenden">Wann <cite>.current</cite> verwenden?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useRef.html#wann-current-nicht-benotigt-wird">Wann <cite>.current</cite> nicht benötigt wird?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useRef.html#typische-anwendungsfalle">Typische Anwendungsfälle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="useRef.html#zusammenfassung">Zusammenfassung</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="useState.html"><cite>useState</cite></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="useState.html#uberblick">Überblick</a></li>
-</ul>
-</li>
-</ul>
+          <section id="usecallback-in-react">
+<span id="usecallback"></span><h1>useCallback in React<a class="headerlink" href="#usecallback-in-react" title="Link to this heading">¶</a></h1>
+<section id="einfuhrung">
+<h2>Einführung<a class="headerlink" href="#einfuhrung" title="Link to this heading">¶</a></h2>
+<p>Das React-Hook <cite>useCallback</cite> wird verwendet, um Funktionen zu speichern, deren Referenzen sich nur dann ändern, wenn die Abhängigkeiten aktualisiert werden. Dies hilft, unnötige Renderzyklen zu vermeiden, insbesondere bei der Übergabe von Funktionen an Kindkomponenten, die <cite>React.memo</cite> oder ähnliche Techniken verwenden.</p>
+<p>Hauptvorteile:
+- Reduzierung von Renderzyklen in Kindkomponenten.
+- Optimierung der Performance durch stabile Funktionsreferenzen.
+- Vermeidung von unerwünschten Seiteneffekten.</p>
+</section>
+<section id="beispielverwendung">
+<h2>Beispielverwendung<a class="headerlink" href="#beispielverwendung" title="Link to this heading">¶</a></h2>
+<p>Hier ist ein Beispiel, das zeigt, wie <cite>useCallback</cite> eingesetzt wird:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useCallback</span><span class="p">,</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">ParentComponent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">count</span><span class="p">,</span><span class="w"> </span><span class="nx">setCount</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">text</span><span class="p">,</span><span class="w"> </span><span class="nx">setText</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Speichern der Funktion mit Abhängigkeit von &#39;count&#39;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useCallback</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Count: </span><span class="si">${</span><span class="nx">count</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">[</span><span class="nx">count</span><span class="p">]);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Count</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">count</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)}</span><span class="o">&gt;</span><span class="nx">Count</span><span class="w"> </span><span class="nx">erhöhen</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">ChildComponent</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClick</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">input</span>
+<span class="w">                </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span>
+<span class="w">                </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">text</span><span class="p">}</span>
+<span class="w">                </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setText</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span>
+<span class="w">                </span><span class="nx">placeholder</span><span class="o">=</span><span class="s2">&quot;Text eingeben&quot;</span>
+<span class="w">            </span><span class="o">/&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">ChildComponent</span><span class="p">({</span><span class="w"> </span><span class="nx">onClick</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;ChildComponent gerendert&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onClick</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Handle</span><span class="w"> </span><span class="nx">Click</span><span class="o">&lt;</span><span class="err">/button&gt;;</span>
+<span class="p">}</span>
+</pre></div>
 </div>
+</section>
+<section id="wichtige-hinweise">
+<h2>Wichtige Hinweise<a class="headerlink" href="#wichtige-hinweise" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Verwendung mit React.memo</strong>:
+<cite>useCallback</cite> ist besonders nützlich in Kombination mit <cite>React.memo</cite>, um zu verhindern, dass Kindkomponenten unnötig neu gerendert werden, wenn sich ihre Props nicht ändern.</p></li>
+<li><p><strong>Abhängigkeiten</strong>:
+Die Abhängigkeiten im zweiten Argument von <cite>useCallback</cite> bestimmen, wann die gespeicherte Funktion neu erstellt wird. Diese sollten sorgfältig definiert werden, um unerwartetes Verhalten zu vermeiden.</p></li>
+<li><p><strong>Nicht für jede Funktion erforderlich</strong>:
+Es ist nicht notwendig, jede Funktion mit <cite>useCallback</cite> zu umschließen. Verwende es nur, wenn Funktionsreferenzen stabil bleiben müssen, z. B. bei Performanceproblemen.</p></li>
+</ol>
+</section>
+<section id="weitere-themen">
+<h2>Weitere Themen<a class="headerlink" href="#weitere-themen" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Vergleich zu useMemo</strong>:
+Während <cite>useMemo</cite> Werte speichert, speichert <cite>useCallback</cite> Funktionen. Beide nutzen das gleiche Prinzip der Abhängigkeiten.</p></li>
+<li><p><strong>Optimierungstipps</strong>:
+- Vermeide übermäßigen Einsatz von <cite>useCallback</cite>, da es Speicher und Rechenleistung kostet.
+- Fokussiere dich auf Anwendungsfälle mit spürbaren Performanceproblemen.</p></li>
+<li><p><strong>Alternativen</strong>:
+In manchen Fällen können Inline-Funktionen ausreichend sein, wenn die Renderkosten der betroffenen Komponenten gering sind.</p></li>
+</ol>
+</section>
+<section id="fazit">
+<h2>Fazit<a class="headerlink" href="#fazit" title="Link to this heading">¶</a></h2>
+<p><cite>useCallback</cite> ist ein hilfreiches Werkzeug, um die Performance von React-Anwendungen zu verbessern, sollte aber gezielt und mit Bedacht eingesetzt werden. Es dient insbesondere dazu, stabile Funktionsreferenzen zu gewährleisten und unnötige Renderzyklen zu vermeiden.</p>
+</section>
 </section>
 
         </article>
@@ -377,26 +378,8 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="customHook.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Custom Hooks</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="../index.tsx.html">
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title"><cite>index.tsx</cite> Datei 📝</div>
-                
-              </div>
-            </a>
+          
+          
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -415,8 +398,31 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">useCallback in React</a><ul>
+<li><a class="reference internal" href="#einfuhrung">Einführung</a></li>
+<li><a class="reference internal" href="#beispielverwendung">Beispielverwendung</a></li>
+<li><a class="reference internal" href="#wichtige-hinweise">Wichtige Hinweise</a></li>
+<li><a class="reference internal" href="#weitere-themen">Weitere Themen</a></li>
+<li><a class="reference internal" href="#fazit">Fazit</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
