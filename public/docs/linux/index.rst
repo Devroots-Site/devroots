@@ -23,5 +23,9 @@ bichlerbastian@gmail.com
    md/zeitinterval
    md/zip
 
+   md//oh-my-zsh/index.rst
+   
+   md/packetes/index.rst
+
 
 

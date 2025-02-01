@@ -28,7 +28,7 @@ Ein Cronjob besteht aus fünf Feldern, die den Zeitpunkt der Ausführung definie
 - Monat (1 - 12)
 - Wochentag (Sonntag bis Samstag, 0 = Sonntag)
 
-__Beispiel__ :
+**Beispiel** :
 
 Führe den Befehl mein_script.sh jeden Tag um 3:30 Uhr aus: (Systemzeit)
 
@@ -38,7 +38,7 @@ Führe den Befehl mein_script.sh jeden Tag um 3:30 Uhr aus: (Systemzeit)
 
 ## Besondere Zeichen
 
-### Stern (*) - Jeder Wert
+### Stern (\*) - Jeder Wert
 
 Verwendet, um anzuzeigen, dass der Cronjob zu jedem möglichen Wert in diesem Feld passen soll.
 
@@ -53,7 +53,7 @@ Führe den Befehl `täglicher_job.sh?` jeden Tag um Mitternacht aus:
 
 Ermöglicht die Angabe mehrerer Werte in einem Feld.
 
-__Beispiel__:
+**Beispiel**:
 
 Führe den Befehl mein_script.sh um 2:30 Uhr und 6:30 Uhr jeden Tag aus:
 

@@ -89,7 +89,7 @@ Um den Inhalt einer ZIP-Datei anzuzeigen, ohne sie zu entpacken, verwende den fo
 unzip -l archivname.zip
 ```
 
-### Überschreiben von Dateien beim  Enpacken vermeiden
+### Überschreiben von Dateien beim Enpacken vermeiden
 
 Um zu verhindern, dass existierende Dateien beim Entpacken überschrieben werden, verwende die Option -n:
 

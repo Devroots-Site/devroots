@@ -251,13 +251,13 @@ function zeigeNachricht() {
 # Funktion aufrufen
 zeigeNachricht
 ------------------------------------
-oder 
+oder
 ------------------------------------
 namefunction() {
   echo "hi"
 }
 ------------------------------------
-oder mit übergabe parameter 
+oder mit übergabe parameter
 ------------------------------------
 add_numbers() {
   local num1=$1

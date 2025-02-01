@@ -11,9 +11,11 @@ SSH steht für Secure Shell und ist ein Netzwerkprotokoll, das sicheren Zugang z
 ### Unter Windows
 
 1. **Eingabeaufforderung oder PowerShell öffnen:**
+
    - Öffne die Eingabeaufforderung oder PowerShell.
 
 2. **SSH-Schlüssel erstellen:**
+
    - Führe folgenden Befehl aus:
      ```sh
      ssh-keygen -t rsa -b 4096 -C "deine-email@example.com"
@@ -43,6 +45,7 @@ Die Zahl `4096` gibt die Länge des Schlüssels in Bits an. Je länger der Schl�
 ## Hinterlegung des öffentlichen Schlüssels auf dem Zielserver
 
 1. **Öffentlichen Schlüssel kopieren:**
+
    - Führe folgenden Befehl aus, um den Schlüssel auf den Server zu kopieren:
      ```sh
      ssh-copy-id benutzername@server-ip
@@ -67,18 +70,20 @@ Nach der Hinterlegung des öffentlichen Schlüssels kannst du dich ohne Passwort
 
 ```sh
 ssh benutzername@server-ip
-``` 
+```
 
 ## Verwendung von SSH
 
 ### Unter Windows
 
 1. **Verbindung zu einem SSH-Server herstellen:**
+
    - Öffne die Eingabeaufforderung oder PowerShell.
    - Führe folgenden Befehl aus:
-    ```sh
-     ssh -p benutzername@server-ip (Standartgemäß port 22 )
-     ```
+
+   ```sh
+    ssh -p benutzername@server-ip (Standartgemäß port 22 )
+   ```
 
 2. **Alternative Methode: Verwendung von PuTTY:**
    - Starte PuTTY.

@@ -11,7 +11,6 @@ from datetime import date
 project = 'Linux'
 copyright = f'{date.today().year    }, Bichler Bastian'
 author = 'Bichler Bastian'
-release = '0.1.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
