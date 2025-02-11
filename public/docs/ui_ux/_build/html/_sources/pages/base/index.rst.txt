@@ -7,3 +7,4 @@ Index Grundlagen
 
    colors.rst
    contrast.rst
+   colorHarmony.rst
