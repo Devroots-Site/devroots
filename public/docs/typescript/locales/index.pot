@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Bichler Bastian
+# This file is distributed under the same license as the typescript package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: typescript \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-11 16:12+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../source/index.rst:33
+msgid "Contents:"
+msgstr ""
+
+#: ../source/index.rst:2
+msgid "Typescript"
+msgstr ""
+
+#: ../source/index.rst:4
+msgid "TypeScript is a statically typed superset of JavaScript that compiles to plain JavaScript. It adds optional types, interfaces, and other features that help catch errors early and improve code quality and maintainability."
+msgstr ""
+
+#: ../source/index.rst:6
+msgid "Key Features:"
+msgstr ""
+
+#: ../source/index.rst:8
+msgid "**Static Typing**: Add type annotations to variables, function parameters, and return values."
+msgstr ""
+
+#: ../source/index.rst:9
+msgid "**Interfaces & Type Aliases**: Define contracts for objects and structure for data."
+msgstr ""
+
+#: ../source/index.rst:10
+msgid "**Classes & Inheritance**: Supports modern object-oriented programming."
+msgstr ""
+
+#: ../source/index.rst:11
+msgid "**Modules**: Organize code into reusable units."
+msgstr ""
+
+#: ../source/index.rst:12
+msgid "**Type Inference**: Automatically deduces types when possible."
+msgstr ""
+
+#: ../source/index.rst:13
+msgid "**Tooling Integration**: Works well with modern editors like VS Code for autocomplete and refactoring."
+msgstr ""
+
+#: ../source/index.rst:14
+msgid "**Strict Mode**: Enables a set of rules to catch more bugs early."
+msgstr ""
+
+#: ../source/index.rst:17
+msgid "**Use Cases**:"
+msgstr ""
+
+#: ../source/index.rst:19
+msgid "Large-scale applications where maintainability is key."
+msgstr ""
+
+#: ../source/index.rst:20
+msgid "Projects where early bug detection is valuable."
+msgstr ""
+
+#: ../source/index.rst:21
+msgid "Teams looking to enforce coding standards and contracts."
+msgstr ""
+
+#: ../source/index.rst:24
+msgid "Getting Started:"
+msgstr ""
+
+#: ../source/index.rst:26
+msgid "Install via npm: `npm install -g typescript`"
+msgstr ""
+
+#: ../source/index.rst:27
+msgid "Initialize: tsc --init"
+msgstr ""
+
+#: ../source/index.rst:28
+msgid "Compile: tsc"
+msgstr ""
+
+#: ../source/index.rst:30
+msgid "For more, see the full documentation at https://www.typescriptlang.org/docs/"
+msgstr ""

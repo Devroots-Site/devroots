@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Bichler Bastian
+# This file is distributed under the same license as the typescript package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: typescript\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-11 16:12+0200\n"
+"PO-Revision-Date: 2025-04-11 16:18+0200\n"
+"Last-Translator: \n"
+"Language-Team: de <LL@li.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.17.0\n"
+"X-Generator: Poedit 3.6\n"
+
+#: ../source/index.rst:33
+msgid "Contents:"
+msgstr "Inhalt:"
+
+#: ../source/index.rst:2
+msgid "Typescript"
+msgstr "Typescript"
+
+#: ../source/index.rst:4
+msgid ""
+"TypeScript is a statically typed superset of JavaScript that compiles to "
+"plain JavaScript. It adds optional types, interfaces, and other features "
+"that help catch errors early and improve code quality and maintainability."
+msgstr "TypeScript ist eine statisch typisierte Obermenge von JavaScript, die sich "
+"zu einfachem JavaScript kompilieren lässt. Es fügt optionale Typen, "
+"Schnittstellen und andere Funktionen hinzu, die helfen, Fehler frühzeitig zu "
+"erkennen und die Codequalität und Wartbarkeit zu verbessern"
+
+#: ../source/index.rst:6
+msgid "Key Features:"
+msgstr "Wesentliche Merkmale:"
+
+#: ../source/index.rst:8
+msgid ""
+"**Static Typing**: Add type annotations to variables, function parameters, "
+"and return values."
+msgstr "**Statische Typisierung**: Fügen Sie Variablen, Funktionsparametern und "
+"Rückgabewerten Typ-Annotationen hinzu."
+
+#: ../source/index.rst:9
+msgid ""
+"**Interfaces & Type Aliases**: Define contracts for objects and structure "
+"for data."
+msgstr ""
+"**Schnittstellen und Typ-Aliase**: Definieren Sie Typen  für Objekte und "
+"Strukturen für Daten."
+
+#: ../source/index.rst:10
+msgid "**Classes & Inheritance**: Supports modern object-oriented programming."
+msgstr ""
+"**Klassen und Vererbung**: Unterstützt die moderne objektorientierte "
+"Programmierung."
+
+#: ../source/index.rst:11
+msgid "**Modules**: Organize code into reusable units."
+msgstr "**Module**: Organisieren Sie Code in wiederverwendbare Einheiten."
+
+#: ../source/index.rst:12
+msgid "**Type Inference**: Automatically deduces types when possible."
+msgstr "**Typeninferenz**: Automatische Ableitung von Typen, wenn möglich."
+
+#: ../source/index.rst:13
+msgid ""
+"**Tooling Integration**: Works well with modern editors like VS Code for "
+"autocomplete and refactoring."
+msgstr ""
+"**Tooling-Integration**: Funktioniert gut mit modernen Editoren wie VS Code "
+"für Autovervollständigung und Refactoring."
+
+#: ../source/index.rst:14
+msgid "**Strict Mode**: Enables a set of rules to catch more bugs early."
+msgstr ""
+"**Strenger Modus**: Aktiviert eine Reihe von Regeln, um mehr Fehler "
+"frühzeitig zu erkennen."
+
+#: ../source/index.rst:17
+msgid "**Use Cases**:"
+msgstr "**Verwendungszwecke**:"
+
+#: ../source/index.rst:19
+msgid "Large-scale applications where maintainability is key."
+msgstr ""
+"Groß angelegte Anwendungen, bei denen Wartungsfreundlichkeit eine wichtige "
+"Rolle spielt."
+
+#: ../source/index.rst:20
+msgid "Projects where early bug detection is valuable."
+msgstr "Projekte, bei denen eine frühzeitige Fehlererkennung wichtig ist."
+
+#: ../source/index.rst:21
+msgid "Teams looking to enforce coding standards and contracts."
+msgstr ""
+"Teams, die die Einhaltung von Kodierungsrichtlinien und Schnittstellen "
+"sicherstellen wollen."
+
+#: ../source/index.rst:24
+msgid "Getting Started:"
+msgstr "Erste Schritte:"
+
+#: ../source/index.rst:26
+msgid "Install via npm: `npm install -g typescript`"
+msgstr "Installation über npm: „npm install -g typescript“."
+
+#: ../source/index.rst:27
+msgid "Initialize: tsc --init"
+msgstr "Initialisieren: tsc --init"
+
+#: ../source/index.rst:28
+msgid "Compile: tsc"
+msgstr "Kompilieren: `tsc`"
+
+#: ../source/index.rst:30
+msgid ""
+"For more, see the full documentation at https://www.typescriptlang.org/docs/"
+msgstr ""
+"Weitere Informationen finden Sie in der vollständigen Dokumentation unter "
+"https://www.typescriptlang.org/docs/."
