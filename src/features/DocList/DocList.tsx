@@ -1,274 +1,248 @@
 import {
-  Box,
-  Container,
-  TextField,
-  MenuItem,
-  Grid2,
-  Card,
-  CardContent,
-  CardActions,
-  Typography,
-  Chip,
-  Avatar,
-  Button,
-  CircularProgress,
-  Alert,
+    Box,
+    Container,
+    TextField,
+    MenuItem,
+    Grid,
+    Card,
+    CardContent,
+    CardActions,
+    Typography,
+    Chip,
+    Avatar,
+    Button,
+    Alert,
 } from '@mui/material';
 import TextSnippetIcon from '@mui/icons-material/TextSnippet';
 import { useEffect, useState } from 'react';
-import { Doc } from './DocList.type';
+import { IDocumentation } from './documentation.type';
+import { useDocumentation } from './hook/useDocumentation';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
-const keywordColors = [
-  'primary',
-  'secondary',
-  'success',
-  'error',
-  'warning',
-  'info',
-];
+const keywordColors = ['primary', 'secondary', 'success', 'error', 'warning', 'info'];
 
 export default function DocsList() {
-  const [docs, setDocs] = useState<Doc[]>([]);
-  const [filteredDocs, setFilteredDocs] = useState<Doc[]>([]);
-  const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
+    const [filteredDocs, setFilteredDocs] = useState<IDocumentation[]>([]);
 
-  const keywordColorMap: {
-    [key: string]:
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'error'
-    | 'warning'
-    | 'info';
-  } = {};
-  categories.forEach((keyword, index) => {
-    keywordColorMap[keyword] = keywordColors[index % keywordColors.length] as
-      | 'primary'
-      | 'secondary'
-      | 'success'
-      | 'error'
-      | 'warning'
-      | 'info';
-  });
+    const [selectedCategory, setSelectedCategory] = useState<string>('');
+    const [searchTerm, setSearchTerm] = useState<string>('');
+    const debouncedSearch = useDebouncedValue(searchTerm, 300);
 
-  useEffect(() => {
-    const fetchDocsAndCategories = async () => {
-      try {
-        const [docsResponse, categoriesResponse] = await Promise.all([
-          fetch(import.meta.env.VITE_BE_IP + '/docs/all'),
-          fetch(import.meta.env.VITE_BE_IP + '/docs/categories/all'),
-        ]);
+    const keywordColorMap: {
+        [key: string]: 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info';
+    } = {};
 
-        if (!docsResponse.ok || !categoriesResponse.ok) {
-          throw new Error('Failed to fetch data');
+    const {
+        documentation,
+        errorDocumentation,
+        isLoadingDocumentation,
+        keywords,
+        isLoadingKeywords,
+        errorDocumentationKeywords,
+    } = useDocumentation();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const publicandActiveDocumentation = documentation ?? [];
+    const categories = keywords ?? [];
+    // SECTION useEffect
+
+    categories.forEach((keyword, index) => {
+        keywordColorMap[keyword] = keywordColors[index % keywordColors.length] as
+            | 'primary'
+            | 'secondary'
+            | 'success'
+            | 'error'
+            | 'warning'
+            | 'info';
+    });
+
+    // ANCHOR filtering
+    useEffect(() => {
+        // Start with the full list of documents
+        let filtered = [...publicandActiveDocumentation];
+
+        // Apply search filter (match in name or description)
+        if (searchTerm.trim()) {
+            const lowerSearch = searchTerm.toLowerCase();
+            filtered = filtered.filter(
+                (doc) =>
+                    doc.name.toLowerCase().includes(lowerSearch) ||
+                    (doc.description && doc.description.toLowerCase().includes(lowerSearch)),
+            );
         }
 
-        const docsData = await docsResponse.json();
-        const categoriesData = await categoriesResponse.json();
-
-        setDocs(
-          docsData.sort((a: { name: string }, b: { name: any }) =>
-            a.name.localeCompare(b.name)
-          )
-        );
-        setFilteredDocs(docsData);
-        setCategories(categoriesData.keywords || []);
-      } catch (err) {
-        if (err instanceof Error) {
-          setError(err.message || 'An unknown error occurred');
-        } else {
-          setError('An unknown error occurred');
+        // Apply category filter (only if one is selected)
+        if (selectedCategory) {
+            filtered = filtered.filter((doc) => doc.keywords?.includes(selectedCategory));
         }
-      } finally {
-        setLoading(false);
-      }
-    };
 
-    fetchDocsAndCategories();
-  }, []);
+        // Update the filtered documents state
+        setFilteredDocs(filtered);
+    }, [publicandActiveDocumentation, searchTerm, debouncedSearch, selectedCategory]);
 
-  useEffect(() => {
-    let filtered = [...docs];
+    // !SECTION
 
-    if (searchTerm) {
-      filtered = filtered.filter(
-        (doc) =>
-          doc.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          (doc.description &&
-            doc.description.toLowerCase().includes(searchTerm.toLowerCase()))
-      );
+    function useDebouncedValue<T>(value: T, delay = 300): T {
+        const [debounced, setDebounced] = useState(value);
+
+        useEffect(() => {
+            const timer = setTimeout(() => setDebounced(value), delay);
+            return () => clearTimeout(timer);
+        }, [value, delay]);
+
+        return debounced;
     }
 
-    if (selectedCategory) {
-      filtered = filtered.filter((doc) =>
-        doc.keywords?.includes(selectedCategory)
-      );
-    }
+    return (
+        <Box>
+            {errorDocumentation || errorDocumentationKeywords ? (
+                <Box sx={{ p: 4 }}>
+                    <Alert severity="error">
+                        Failed to load documentation or keywords. Please try again later.
+                    </Alert>
+                </Box>
+            ) : isLoadingDocumentation || isLoadingKeywords ? (
+                <LoadingSpinner loadingmessage="Loading documentation..." />
+            ) : (
+                <Container maxWidth="lg">
+                    <Box sx={{ marginY: 4 }}>
+                        {/* Filter Inputs */}
+                        <Grid container spacing={2} marginBottom={3}>
+                            <Grid size={{ xs: 12, sm: 6 }}>
+                                <TextField
+                                    fullWidth
+                                    label="Search"
+                                    variant="outlined"
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid size={{ xs: 12, sm: 6 }}>
+                                <TextField
+                                    select
+                                    fullWidth
+                                    label="Category"
+                                    variant="outlined"
+                                    value={selectedCategory}
+                                    onChange={(e) => setSelectedCategory(e.target.value)}
+                                >
+                                    <MenuItem value="">
+                                        <em>All Categories</em>
+                                    </MenuItem>
+                                    {categories.map((keyword, index) => (
+                                        <MenuItem key={index} value={keyword}>
+                                            {keyword}
+                                        </MenuItem>
+                                    ))}
+                                </TextField>
+                            </Grid>
+                        </Grid>
 
-    setFilteredDocs(filtered);
-  }, [searchTerm, selectedCategory, docs]);
+                        {/* Documentation Cards */}
+                        <Grid container spacing={3}>
+                            {(filteredDocs ?? []).map((document) => (
+                                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={document.id}>
+                                    <Card
+                                        sx={{
+                                            height: '100%',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            borderRadius: 2,
+                                            boxShadow: 3,
+                                        }}
+                                    >
+                                        {/* Image */}
+                                        <Box
+                                            sx={{
+                                                height: 250,
+                                                backgroundColor: '#fafafa',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                overflow: 'hidden',
+                                                borderTopLeftRadius: 8,
+                                                borderTopRightRadius: 8,
+                                            }}
+                                        >
+                                            <Avatar
+                                                variant="square"
+                                                src={`/docs/${document.picturepath}logo.png`}
+                                                alt={document.name}
+                                                sx={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    objectFit: 'cover',
+                                                }}
+                                            />
+                                        </Box>
 
-  return (
-    <Box sx={{ marginX: '24px', marginTop: '24px' }}>
-      {loading && (
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          height="100vh"
-        >
-          <CircularProgress />
-        </Box>
-      )}
-      {error && (
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          height="100vh"
-        >
-          <Alert severity="error">An error occurred: {error}</Alert>
-        </Box>
-      )}
-      <Container maxWidth="lg" sx={{ paddingY: { xs: 2, md: 4 } }}>
-        <Box
-          sx={{
-            marginBottom: 4,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 2,
-          }}
-        >
-          {/* Search and Category Filters */}
-          <TextField
-            fullWidth
-            label="Search"
-            variant="outlined"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <TextField
-            select
-            fullWidth
-            label="Category"
-            variant="outlined"
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-          >
-            <MenuItem value="">
-              <em>All Categories</em>
-            </MenuItem>
-            {categories.map((keyword, index) => (
-              <MenuItem key={index} value={keyword}>
-                {keyword}
-              </MenuItem>
-            ))}
-          </TextField>
-        </Box>
+                                        {/* Content */}
+                                        <CardContent sx={{ flexGrow: 1 }}>
+                                            <Typography variant="h6" fontWeight="bold" gutterBottom>
+                                                {document.name}
+                                            </Typography>
+                                            <Typography
+                                                variant="body2"
+                                                color="textSecondary"
+                                                gutterBottom
+                                            >
+                                                {document.description}
+                                            </Typography>
+                                            <Box
+                                                sx={{
+                                                    display: 'flex',
+                                                    flexWrap: 'wrap',
+                                                    gap: 1,
+                                                    mt: 1,
+                                                }}
+                                            >
+                                                {Array.isArray(document.keywords) &&
+                                                    document.keywords.map((keyword, idx) => (
+                                                        <Chip
+                                                            key={idx}
+                                                            label={keyword}
+                                                            color={keywordColorMap[keyword]}
+                                                            size="small"
+                                                        />
+                                                    ))}
+                                            </Box>
+                                        </CardContent>
 
-        {filteredDocs.length > 0 ? (
-          <Grid2 container spacing={3}>
-            {filteredDocs.map((doc) => (
-              <Grid2 size={{ xs: 12, sm: 6, md: 4 }} key={doc.id}>
-                <Card
-                  sx={{
-                    boxShadow: 3,
-                    borderRadius: '12px',
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                  }}
-                >
-                  {/* Image */}
-                  <Box
-                    sx={{
-                      height: 300,
-                      backgroundColor: '#f4f4f4',
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      overflow: 'hidden',
-                    }}
-                  >
-                    <Avatar
-                      variant="square"
-                      src={`/docs/${doc.picturepath}logo.png`}
-                      alt={doc.name}
-                      sx={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'contain',
-                      }}
-                    />
-                  </Box>
-
-                  {/* Card Content */}
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography
-                      variant="h6"
-                      sx={{ fontWeight: 'bold', marginBottom: 1 }}
-                    >
-                      {doc.name}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      sx={{ marginBottom: 2 }}
-                    >
-                      {doc.description}
-                    </Typography>
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                      {Array.isArray(doc.keywords) &&
-                        doc.keywords.map((keyword, idx) => (
-                          <Chip
-                            key={idx}
-                            label={keyword}
-                            color={keywordColorMap[keyword]}
-                            size="small"
-                          />
-                        ))}
+                                        {/* Actions */}
+                                        <CardActions
+                                            sx={{
+                                                px: 2,
+                                                pb: 2,
+                                                pt: 0,
+                                                justifyContent: 'space-between',
+                                                alignItems: 'center',
+                                            }}
+                                        >
+                                            <Box>
+                                                <Typography variant="caption">
+                                                    <strong>Version:</strong> {document.version}
+                                                    <br />
+                                                    <strong>Author:</strong> {document.creator}
+                                                </Typography>
+                                            </Box>
+                                            <Button
+                                                size="small"
+                                                href={`/docs/${document.filepath}`}
+                                                target="_blank"
+                                                variant="contained"
+                                                color="primary"
+                                                startIcon={<TextSnippetIcon />}
+                                            >
+                                                Open
+                                            </Button>
+                                        </CardActions>
+                                    </Card>
+                                </Grid>
+                            ))}
+                        </Grid>
                     </Box>
-                  </CardContent>
-
-                  {/* Card Actions */}
-                  <CardActions
-                    sx={{
-                      padding: 2,
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <Typography variant="caption">
-                      <strong>Version:</strong> {doc.version}
-                      <br />
-                      <strong>Author:</strong> {doc.creator}
-                    </Typography>
-                    <Button
-                      size="small"
-                      href={`/docs/${doc.filepath}`}
-                      target="_blank"
-                      variant="contained"
-                      color="primary"
-                      startIcon={<TextSnippetIcon />}
-                    >
-                      Open
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid2>
-            ))}
-          </Grid2>
-        ) : (
-          <Typography variant="h6" textAlign="center">
-            No documents found.
-          </Typography>
-        )}
-      </Container>
-    </Box>
-  );
+                </Container>
+            )}
+        </Box>
+    );
 }
