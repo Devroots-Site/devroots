@@ -11,14 +11,14 @@
         "noEmit": true,
         "jsx": "react-jsx",
 
-        /* Linting & Typprüfung */
+        // lint and typecheck
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
         "skipLibCheck": true,
 
-        /* ✅ Support für Vitest & Jest-DOM */
+        /* for vitest and DOM */
         "types": ["vitest/globals", "@testing-library/jest-dom"],
         "baseUrl": ".",
         "paths": {
