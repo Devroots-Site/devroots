@@ -51,7 +51,7 @@ export class Documentation {
 
     public static async getAllKeywords(): Promise<string[]> {
         const response = await axiosInstance.get(`/documentation/keywords/all`);
-        
+
         return response.data.payload;
     }
 }

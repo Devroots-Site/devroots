@@ -25,17 +25,17 @@ Die `WebsiteList`-Komponente ist eine React-Komponente, die mithilfe der Materia
 
 - **Props:** Diese Komponente hat keine speziellen Props, sondern bezieht Daten direkt aus einer API.
 - **State:**
-  - `websites`: Liste aller Websites.
-  - `categories`: Liste aller Kategorien.
-  - `filteredWebsites`: Gefilterte Liste der Websites basierend auf Suche und ausgewählter Kategorie.
-  - `selectedCategory`: Aktuell ausgewählte Kategorie.
-  - `searchTerm`: Aktueller Suchbegriff.
+    - `websites`: Liste aller Websites.
+    - `categories`: Liste aller Kategorien.
+    - `filteredWebsites`: Gefilterte Liste der Websites basierend auf Suche und ausgewählter Kategorie.
+    - `selectedCategory`: Aktuell ausgewählte Kategorie.
+    - `searchTerm`: Aktueller Suchbegriff.
 
 ### API-Aufrufe:
 
 - Ruft Daten von zwei Endpunkten ab:
-  1. `import.meta.env.VITE_BE_IP + "/websites/all"` - Für die Liste aller Websites.
-  2. `import.meta.env.VITE_BE_IP + '/websites/categories/all'` - Für die Liste aller Kategorien.
+    1. `import.meta.env.VITE_BE_IP + "/websites/all"` - Für die Liste aller Websites.
+    2. `import.meta.env.VITE_BE_IP + '/websites/categories/all'` - Für die Liste aller Kategorien.
 - Handhabung von Fehlern erfolgt über einen `try-catch`-Block.
 
 ### Rendering:
@@ -45,30 +45,30 @@ Die Hauptkomponente besteht aus:
 - **Suchfeld:** Ein `TextField` zur Eingabe des Suchbegriffs.
 - **Kategoriefilter:** Ein `TextField` mit Auswahlmenü (`select`), um die Kategorie zu wählen.
 - **Website-Karten:** Jede Karte enthält:
-  - Name und Beschreibung der Website.
-  - Dynamisch gefärbte Chips für Stichwörter.
-  - Einen Button zum Öffnen der Website.
+    - Name und Beschreibung der Website.
+    - Dynamisch gefärbte Chips für Stichwörter.
+    - Einen Button zum Öffnen der Website.
 
 ## Design und Stil
 
 - **Farbschema:**
-  - Die Hauptfarbe für die Überschrift ist `#0078ff`.
-  - Chips sind in verschiedenen Farben (`primary`, `secondary`, etc.) basierend auf Kategorien.
+    - Die Hauptfarbe für die Überschrift ist `#0078ff`.
+    - Chips sind in verschiedenen Farben (`primary`, `secondary`, etc.) basierend auf Kategorien.
 - **Karten:**
-  - Schatteneffekte (`boxShadow`) und abgerundete Ecken (`borderRadius`) sorgen für ein modernes Aussehen.
+    - Schatteneffekte (`boxShadow`) und abgerundete Ecken (`borderRadius`) sorgen für ein modernes Aussehen.
 
 ## Verwendung
 
 1. **Integration:**
    Importieren Sie die Komponente und fügen Sie sie in Ihre React-App ein:
 
-   ```javascript
-   import WebsiteList from './WebsiteList';
+    ```javascript
+    import WebsiteList from './WebsiteList';
 
-   function App() {
-     return <WebsiteList />;
-   }
-   ```
+    function App() {
+        return <WebsiteList />;
+    }
+    ```
 
 2. **API-Konfiguration:**
    Stellen Sie sicher, dass die Umgebungsvariablen (`VITE_BE_IP`) korrekt gesetzt sind, damit die API-Aufrufe funktionieren.

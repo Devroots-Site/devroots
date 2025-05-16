@@ -1,16 +1,17 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router';
-import Landing from './page/Landing/Landing';
-import AboutMe from './page/AboutMe/AboutMe';
-import DocumentationPage from './page/DocumentationPage';
-import Tools from './page/Tools/Tools';
-import Websites from './page/Websites/Websites';
+// import AboutMe from 'page/AboutMe/AboutMe';
+// import DocumentationPage from './page/DocumentationPage';
+// import Tools from './page/Tools/Tools';
+// import Websites from './page/Websites/Websites';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './Theme/Theme';
-import { CssBaseline } from '@mui/material';
+import { Box, CssBaseline } from '@mui/material';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-
+import LandingPage from './page/Landing.page';
+import { DocumentationPage } from './page';
+import Footer from './components/Footer';
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -21,24 +22,32 @@ const queryClient = new QueryClient({
         },
     },
 });
-function App() {
+export default function App() {
     return (
         <QueryClientProvider client={queryClient}>
-            <ReactQueryDevtools initialIsOpen={true} />
+            <ReactQueryDevtools initialIsOpen={false} />
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <BrowserRouter>
-                    <Routes>
-                        <Route index element={<Landing />} />
-                        <Route path="/docs" element={<DocumentationPage />} />
-                        <Route path="/tools" element={<Tools />} />
-                        <Route path="/aboutme" element={<AboutMe />} />
-                        <Route path="/websites" element={<Websites />} />
-                    </Routes>
-                </BrowserRouter>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        minHeight: '100vh',
+                    }}
+                >
+                    {/* Content area with flex-grow */}
+                    <Box component="main" sx={{ flexGrow: 1 }}>
+                        <BrowserRouter>
+                            <Routes>
+                                <Route index element={<LandingPage />} />
+                                <Route path="/docs" element={<DocumentationPage />} />
+                            </Routes>
+                        </BrowserRouter>
+                    </Box>
+
+                    <Footer />
+                </Box>
             </ThemeProvider>
         </QueryClientProvider>
     );
 }
-
-export default App;
