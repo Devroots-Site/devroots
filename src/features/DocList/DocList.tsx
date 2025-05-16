@@ -82,6 +82,17 @@ export default function DocsList() {
 
     // !SECTION
 
+    /**
+     * Custom React hook that returns a debounced version of the input value.
+     *
+     * Useful for reducing the frequency of expensive operations (e.g. filtering, API calls)
+     * triggered by rapidly changing values such as user input.
+     *
+     * @template T - The type of the input value.
+     * @param value - The value to debounce.
+     * @param delay - Delay in milliseconds before the value is updated (default: 300ms).
+     * @returns The debounced value that only updates after the specified delay.
+     */
     function useDebouncedValue<T>(value: T, delay = 300): T {
         const [debounced, setDebounced] = useState(value);
 
