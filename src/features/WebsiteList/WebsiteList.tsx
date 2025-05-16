@@ -8,110 +8,85 @@ import {
     Chip,
     TextField,
     MenuItem,
+    Alert,
+    Container,
 } from '@mui/material';
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import LoadingSpinner from '@/components/LoadingSpinner';
+import { Websites } from '@/models/Websites';
+import useWebsites from './hooks/useWebsite';
 
 const keywordColors = ['primary', 'secondary', 'success', 'error', 'warning', 'info'];
 
 export default function WebsiteList() {
-    interface Website {
-        id: number;
-        name: string;
-        description: string;
-        link: string;
-        keywords: string[];
-    }
-
-    const [websites, setWebsites] = useState<Website[]>([]);
-    const [categories, setCategories] = useState<string[]>([]);
-    const [filteredWebsites, setFilteredWebsites] = useState<Website[]>([]);
-    const [selectedCategory, setSelectedCategory] = useState('');
+    const [filteredWebsites, setFilteredWebsites] = useState<Websites[]>([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState('');
+    const debouncedSearch = useDebouncedValue(searchTerm, 300);
 
-    let keywordColorMap: { [key: string]: string } = {};
+    const { websitesList, isLoadingWebsite, errorWebsite } = useWebsites();
 
-    useEffect(() => {
-        const fetchWebsitesAndCategories = async () => {
-            try {
-                const [websitesResponse, categoriesResponse] = await Promise.all([
-                    axios.get(import.meta.env.VITE_BE_IP + '/websites/all'),
-                    axios.get(import.meta.env.VITE_BE_IP + '/websites/categories/all'),
-                ]);
+    const websites: Websites[] = websitesList ?? [];
 
-                setWebsites(websitesResponse.data);
-                setFilteredWebsites(websitesResponse.data);
+    const allKeywords = Array.from(
+        new Set(
+            websites
+                .flatMap((site) => site.keywords ?? [])
+                .filter((kw): kw is string => typeof kw === 'string'),
+        ),
+    );
 
-                const fetchedCategories = categoriesResponse.data.keywords || [];
-                setCategories(fetchedCategories);
-
-                // Generate keywordColorMap dynamically
-                keywordColorMap = fetchedCategories.reduce(
-                    (map: { [x: string]: string }, category: string | number, index: number) => {
-                        map[category] = keywordColors[index % keywordColors.length];
-                        return map;
-                    },
-                    {},
-                );
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-
-        fetchWebsitesAndCategories();
-    }, []);
+    const keywordColorMap = allKeywords.reduce(
+        (map, keyword, index) => {
+            map[keyword] = keywordColors[index % keywordColors.length];
+            return map;
+        },
+        {} as Record<string, (typeof keywordColors)[number]>,
+    );
 
     useEffect(() => {
         let filtered = [...websites];
 
-        if (searchTerm) {
-            filtered = filtered.filter((site) =>
-                site.name.toLowerCase().includes(searchTerm.toLowerCase()),
-            );
+        if (debouncedSearch.trim()) {
+            const term = debouncedSearch.toLowerCase();
+            filtered = filtered.filter((site) => site.name.toLowerCase().includes(term));
         }
 
         if (selectedCategory) {
-            filtered = filtered.filter((site) => site.keywords.includes(selectedCategory));
+            filtered = filtered.filter((site) => site.keywords?.includes(selectedCategory));
         }
 
         setFilteredWebsites(filtered);
-    }, [searchTerm, selectedCategory, websites]);
+    }, [debouncedSearch, selectedCategory, websites]);
+
+    if (errorWebsite) {
+        return (
+            <Box sx={{ p: 4 }}>
+                <Alert severity="error">❌ Failed to load websites.</Alert>
+            </Box>
+        );
+    }
+
+    if (isLoadingWebsite) {
+        return <LoadingSpinner loadingmessage="Loading websites..." />;
+    }
 
     return (
-        <Box
-            sx={{
-                padding: '20px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '20px',
-                alignItems: 'center',
-            }}
-        >
-            <Typography
-                variant="h4"
-                sx={{
-                    fontWeight: 'bold',
-                    color: '#0078ff',
-                    marginBottom: '20px',
-                    textAlign: 'center',
-                }}
-            >
-                Websites
+        <Container maxWidth="lg" sx={{ py: 6 }}>
+            <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4} color="primary">
+                🌐 Public Websites
             </Typography>
 
             <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: { xs: 'column', sm: 'row' },
-                    gap: '20px',
-                    marginBottom: '20px',
-                    width: '100%',
-                    maxWidth: '800px',
-                }}
+                display="flex"
+                flexDirection={{ xs: 'column', sm: 'row' }}
+                gap={2}
+                mb={4}
+                justifyContent="center"
             >
                 <TextField
                     fullWidth
-                    label="Search by Name"
+                    label="🔍 Search by name"
                     variant="outlined"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
@@ -119,107 +94,80 @@ export default function WebsiteList() {
                 <TextField
                     select
                     fullWidth
-                    label="Filter by Category"
-                    variant="outlined"
+                    label="📂 Category"
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
                 >
                     <MenuItem value="">
                         <em>All Categories</em>
                     </MenuItem>
-                    {categories.map((category, index) => (
-                        <MenuItem key={index} value={category}>
+                    {allKeywords.map((category) => (
+                        <MenuItem key={category} value={category}>
                             {category}
                         </MenuItem>
                     ))}
                 </TextField>
             </Box>
 
-            {filteredWebsites.map((site) => (
-                <Card
-                    key={site.id}
-                    sx={{
-                        maxWidth: '600px',
-                        width: '100%',
-                        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-                        borderRadius: '12px',
-                    }}
-                >
-                    <CardContent>
-                        <Typography
-                            variant="h5"
-                            sx={{ fontWeight: 'bold', color: '#333', marginBottom: '8px' }}
-                        >
-                            {site.name}
-                        </Typography>
-                        <Typography
-                            variant="body2"
-                            sx={{
-                                color: '#666',
-                                lineHeight: '1.6',
-                                marginBottom: '16px',
-                            }}
-                        >
-                            {site.description}
-                        </Typography>
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                gap: '10px',
-                                flexWrap: 'wrap',
-                                marginBottom: '16px',
-                            }}
-                        >
-                            {site.keywords.map((keyword, index) => {
-                                if (typeof keyword !== 'string') return null;
-                                return (
+            {filteredWebsites.length > 0 ? (
+                filteredWebsites.map((site) => (
+                    <Card key={site.id} sx={{ mb: 3, p: 2, borderRadius: 3, boxShadow: 4 }}>
+                        <CardContent>
+                            <Typography variant="h6" fontWeight="bold" gutterBottom>
+                                {site.name}
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" gutterBottom>
+                                {site.description}
+                            </Typography>
+                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1 }}>
+                                {(site.keywords ?? []).map((keyword, idx) => (
                                     <Chip
-                                        key={index}
+                                        key={idx}
                                         label={keyword}
                                         color={
-                                            (keywordColorMap[keyword] as
+                                            keywordColorMap[keyword] as
                                                 | 'primary'
                                                 | 'secondary'
                                                 | 'success'
                                                 | 'error'
                                                 | 'warning'
                                                 | 'info'
-                                                | 'default') || 'default'
                                         }
-                                        variant="filled"
+                                        size="small"
                                     />
-                                );
-                            })}
-                        </Box>
-                    </CardContent>
-                    <CardActions>
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            size="small"
-                            href={site.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            sx={{
-                                marginLeft: '16px',
-                                textTransform: 'none',
-                                borderRadius: '20px',
-                            }}
-                        >
-                            Visit Website
-                        </Button>
-                    </CardActions>
-                </Card>
-            ))}
-
-            {filteredWebsites.length === 0 && (
-                <Typography
-                    variant="h6"
-                    sx={{ textAlign: 'center', color: '#999', marginTop: '20px' }}
-                >
+                                ))}
+                            </Box>
+                        </CardContent>
+                        <CardActions>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                size="small"
+                                href={site.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                sx={{ ml: 1, borderRadius: 2, textTransform: 'none' }}
+                            >
+                                🌍 Visit Website
+                            </Button>
+                        </CardActions>
+                    </Card>
+                ))
+            ) : (
+                <Typography textAlign="center" color="textSecondary" mt={4}>
                     No websites found.
                 </Typography>
             )}
-        </Box>
+        </Container>
     );
+}
+
+// Debounced search helper
+function useDebouncedValue<T>(value: T, delay = 300): T {
+    const [debounced, setDebounced] = useState(value);
+    useEffect(() => {
+        const timer = setTimeout(() => setDebounced(value), delay);
+        return () => clearTimeout(timer);
+    }, [value, delay]);
+    return debounced;
 }

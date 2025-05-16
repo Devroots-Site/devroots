@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import CTAButton from 'src/components/CTAButton/CTAButton';
 
 export default function Navbar() {
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
     const toggleDrawer = () => {
         setIsDrawerOpen(!isDrawerOpen);
@@ -57,11 +57,12 @@ export default function Navbar() {
                         Tools
                     </Link>
                 </Typography>
-                <Typography variant="body1" sx={{ cursor: 'pointer' }}>
+                {/* TODO Fix it later  */}
+                {/* <Typography variant="body1" sx={{ cursor: 'pointer' }}>
                     <Link to="/aboutme" style={{ textDecoration: 'none', color: 'inherit' }}>
                         About me
                     </Link>
-                </Typography>
+                </Typography> */}
                 <Typography variant="body1" sx={{ cursor: 'pointer' }}>
                     <Link to="/websites" style={{ textDecoration: 'none', color: 'inherit' }}>
                         Websites

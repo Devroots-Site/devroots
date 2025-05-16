@@ -1,9 +1,5 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router';
-// import AboutMe from 'page/AboutMe/AboutMe';
-// import DocumentationPage from './page/DocumentationPage';
-// import Tools from './page/Tools/Tools';
-// import Websites from './page/Websites/Websites';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './Theme/Theme';
 import { Box, CssBaseline } from '@mui/material';
@@ -13,6 +9,7 @@ import LandingPage from './page/Landing.page';
 import { DocumentationPage } from './page';
 import Footer from './components/Footer';
 import ToolsPage from './page/Tools.page';
+import WebsitesPage from './page/Websites.page';
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -43,6 +40,7 @@ export default function App() {
                                 <Route index element={<LandingPage />} />
                                 <Route path="/docs" element={<DocumentationPage />} />
                                 <Route path="tools" element={<ToolsPage />} />
+                                <Route path="websites" element={<WebsitesPage />} />
                             </Routes>
                         </BrowserRouter>
                     </Box>
