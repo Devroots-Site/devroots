@@ -8,9 +8,9 @@ export default defineConfig({
     plugins: [react()],
     test: {
         ...configDefaults,
-        environment: 'jsdom', // notwendig für React-Komponenten (DOM-Simulation)
-        globals: true, // erlaubt expect(), describe(), etc. ohne Import
-        setupFiles: './src/setupTests.ts', // optional: Setup-Datei
+        globals: true,
+        environment: 'jsdom', // importat for react components
+        setupFiles: './src/setupTests.ts', // optinal
     },
 
     resolve: {
