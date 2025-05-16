@@ -12,6 +12,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import LandingPage from './page/Landing.page';
 import { DocumentationPage } from './page';
 import Footer from './components/Footer';
+import ToolsPage from './page/Tools.page';
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -41,6 +42,7 @@ export default function App() {
                             <Routes>
                                 <Route index element={<LandingPage />} />
                                 <Route path="/docs" element={<DocumentationPage />} />
+                                <Route path="tools" element={<ToolsPage />} />
                             </Routes>
                         </BrowserRouter>
                     </Box>
