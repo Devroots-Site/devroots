@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import Navbar from '../../components/Navbar/Navbar';
+import Navbar from '@/components/Navbar';
 import HeaderSection from '../../components/HeaderSection/HeaderSection';
 import Iam from '../../assets/iam.jpeg';
 import Timeline from '../../features/TimeLine/TimeLine';
