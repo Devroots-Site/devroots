@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+    devroots-frontend:
+        container_name: devroots-frontend
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - '3100:3100'
+        restart: unless-stopped
