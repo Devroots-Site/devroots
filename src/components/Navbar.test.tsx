@@ -16,7 +16,7 @@ describe('Navbar.tsx', () => {
         expect(screen.getByAltText('Logo')).toBeInTheDocument();
 
         // Desktop navigation links
-        expect(screen.getByText('Docs')).toBeInTheDocument();
+        // expect(screen.getByText('Docs')).toBeInTheDocument();
         expect(screen.getByText('Tools')).toBeInTheDocument();
         // expect(screen.getByText('About me')).toBeInTheDocument();
         expect(screen.getByText('Websites')).toBeInTheDocument();

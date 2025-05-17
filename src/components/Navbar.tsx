@@ -47,11 +47,12 @@ export default function Navbar() {
                     alignItems: 'center',
                 }}
             >
-                <Typography variant="body1" sx={{ cursor: 'pointer' }}>
+                {/* NOTE IMPLEMENT LATER IN BACKEND  */}
+                {/* <Typography variant="body1" sx={{ cursor: 'pointer' }}>
                     <Link to="/docs" style={{ textDecoration: 'none', color: 'inherit' }}>
                         Docs
                     </Link>
-                </Typography>
+                </Typography> */}
                 <Typography variant="body1" sx={{ cursor: 'pointer' }}>
                     <Link to="/tools" style={{ textDecoration: 'none', color: 'inherit' }}>
                         Tools
