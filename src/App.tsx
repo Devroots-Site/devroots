@@ -6,7 +6,6 @@ import { Box, CssBaseline } from '@mui/material';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import LandingPage from './page/Landing.page';
-import { DocumentationPage } from './page';
 import Footer from './components/Footer';
 import ToolsPage from './page/Tools.page';
 import WebsitesPage from './page/Websites.page';
@@ -38,7 +37,6 @@ export default function App() {
                         <BrowserRouter>
                             <Routes>
                                 <Route index element={<LandingPage />} />
-                                <Route path="/docs" element={<DocumentationPage />} />
                                 <Route path="tools" element={<ToolsPage />} />
                                 <Route path="websites" element={<WebsitesPage />} />
                             </Routes>
